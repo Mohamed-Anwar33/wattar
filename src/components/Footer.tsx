@@ -1,4 +1,4 @@
-import { Heart, Mail, Phone, MapPin, Instagram, Linkedin, Globe, ArrowUp } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Instagram, Twitter, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import logoImage from '../assets/logo.png';
 
@@ -67,14 +67,23 @@ const Footer = () => {
             
             {/* Social Media */}
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
+              <a
+                href="https://www.instagram.com/wattar_ksa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-pink-500/30"
+              >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
-                <Linkedin className="w-5 h-5 text-white" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
-                <Globe className="w-5 h-5 text-white" />
+              <a
+                href="https://x.com/wattar_ksa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="w-10 h-10 bg-gradient-to-r from-slate-800 to-slate-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-slate-800/30"
+              >
+                <Twitter className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -95,10 +104,13 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4 text-white">معلومات التواصل</h4>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-300">
+              <a
+                href="mailto:WATTAR_SALES@outlook.sa"
+                className="flex items-center gap-3 text-gray-300 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+              >
                 <Mail className="w-4 h-4 text-primary" />
-                <span>hello@wattar.com</span>
-              </div>
+                <span>WATTAR_SALES@outlook.sa</span>
+              </a>
               <div className="flex items-center gap-3 text-gray-300">
                 <Phone className="w-4 h-4 text-primary" />
                 <span>+966 50 123 4567</span>

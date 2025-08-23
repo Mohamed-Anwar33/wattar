@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Globe, Send, Star, Sparkles, Crown, Heart, Zap, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Twitter, Send, Star, Sparkles, Crown, Heart, Zap, MessageCircle, CheckCircle, Loader2 } from "lucide-react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import logoImage from '../assets/logo.png';
 
@@ -12,6 +12,8 @@ const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeField, setActiveField] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,6 +47,43 @@ const ContactSection = () => {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const actionUrl = form.getAttribute('action');
+    const formData = new FormData(form);
+
+    try {
+      if (!actionUrl) throw new Error('Missing form action URL');
+
+      const res = await fetch(actionUrl, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      });
+
+      // Expect 2xx success from AJAX endpoint
+      if (!res.ok) {
+        throw new Error(`Failed to send: ${res.status}`);
+      }
+
+      setShowThankYou(true);
+      form.reset();
+
+      // Hide thank you after a few seconds
+      setTimeout(() => setShowThankYou(false), 4000);
+    } catch (err) {
+      console.error('Contact form submit error:', err);
+      alert('تعذر إرسال الرسالة حالياً. حاول مرة أخرى لاحقاً أو تواصل معنا عبر البريد: WATTAR_SALES@outlook.sa');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -160,7 +199,12 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg text-foreground group-hover:text-cyan-600 transition-colors">البريد الإلكتروني</h4>
-                    <p className="text-muted-foreground font-medium">hello@wattar.com</p>
+                    <a
+                      href="mailto:WATTAR_SALES@outlook.sa"
+                      className="inline-flex items-center px-2.5 py-1.5 rounded-md text-muted-foreground font-medium hover:text-cyan-700 dark:hover:text-cyan-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 transition-colors border border-transparent hover:border-cyan-200 dark:hover:border-cyan-600 hover:bg-cyan-50 dark:hover:bg-slate-700/50"
+                    >
+                      WATTAR_SALES@outlook.sa
+                    </a>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4 w-3 h-3 bg-cyan-400/40 rounded-full animate-pulse-slow" />
@@ -199,24 +243,32 @@ const ContactSection = () => {
             <div className="relative">
               <h4 className="font-bold text-xl text-foreground mb-6 text-center">تابعنا على</h4>
               <div className="flex justify-center gap-6">
-                <div className="group relative">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                  <div className="relative w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-pink-500/50">
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/wattar_ksa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="group relative"
+                >
+                  <span className="absolute -inset-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                  <span className="relative w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-pink-500/50">
                     <Instagram className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="group relative">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                  <div className="relative w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-blue-500/50">
-                    <Linkedin className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="group relative">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                  <div className="relative w-14 h-14 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-cyan-500/50">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                </div>
+                  </span>
+                </a>
+                {/* X (Twitter) */}
+                <a
+                  href="https://x.com/wattar_ksa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X (Twitter)"
+                  className="group relative"
+                >
+                  <span className="absolute -inset-2 bg-gradient-to-r from-slate-800 to-slate-600 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                  <span className="relative w-14 h-14 bg-gradient-to-r from-slate-800 to-slate-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-slate-800/40">
+                    <Twitter className="w-6 h-6 text-white" />
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -237,88 +289,196 @@ const ContactSection = () => {
                   </p>
                 </div>
                 
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+{!showThankYou ? (
+                  <form 
+                    action="https://formsubmit.co/ajax/WATTAR_SALES@outlook.sa"
+                    method="POST"
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                    acceptCharset="UTF-8"
+                  >
+                    {/* FormSubmit Configuration */}
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    {/* Optional: if native submission is re-enabled later, add _next at that time */}
+                    {/* Honeypot to reduce spam */}
+                    <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+                    {/* Default email subject shown in inbox. User's entered subject will appear in body as 'subject' */}
+                    <input type="hidden" name="_subject" value="رسالة جديدة من موقع وتار" />
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <Label htmlFor="name" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                          <Crown className="w-4 h-4 text-cyan-500" />
+                          الاسم الكامل
+                        </Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          required
+                          placeholder="أدخل اسمك الكامل"
+                          className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
+                          onFocus={() => setActiveField('name')}
+                          onBlur={() => setActiveField(null)}
+                        />
+                        {activeField === 'name' && (
+                          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl blur opacity-50" />
+                        )}
+                      </div>
+                      <div className="relative">
+                        <Label htmlFor="email" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                          <Mail className="w-4 h-4 text-purple-500" />
+                          البريد الإلكتروني
+                        </Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          placeholder="example@domain.com"
+                          className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
+                          onFocus={() => setActiveField('email')}
+                          onBlur={() => setActiveField(null)}
+                        />
+                        {activeField === 'email' && (
+                          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-50" />
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Phone Number */}
                     <div className="relative">
-                      <Label htmlFor="name" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Crown className="w-4 h-4 text-cyan-500" />
-                        الاسم الكامل
+                      <Label htmlFor="phone" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-teal-500" />
+                        رقم الهاتف
                       </Label>
                       <Input
-                        id="name"
-                        placeholder="أدخل اسمك الكامل"
-                        className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
-                        onFocus={() => setActiveField('name')}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        placeholder="مثال: +966 50 123 4567"
+                        pattern="^[+]?[^a-zA-Z]{7,20}$"
+                        autoComplete="tel"
+                        className="bg-background/80 border-2 border-teal-200/50 focus:border-teal-500 focus:ring-teal-500/20 transition-all duration-300 rounded-xl h-12"
+                        onFocus={() => setActiveField('phone')}
                         onBlur={() => setActiveField(null)}
                       />
-                      {activeField === 'name' && (
-                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl blur opacity-50" />
+                      {activeField === 'phone' && (
+                        <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-xl blur opacity-50" />
                       )}
                     </div>
+
                     <div className="relative">
-                      <Label htmlFor="email" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Mail className="w-4 h-4 text-purple-500" />
-                        البريد الإلكتروني
+                      <Label htmlFor="subject" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                        <Star className="w-4 h-4 text-cyan-500" />
+                        موضوع الرسالة
                       </Label>
                       <Input
-                        id="email"
-                        type="email"
-                        placeholder="example@domain.com"
-                        className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
-                        onFocus={() => setActiveField('email')}
+                        id="subject"
+                        name="subject"
+                        placeholder="اختر موضوع رسالتك"
+                        className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
+                        onFocus={() => setActiveField('subject')}
                         onBlur={() => setActiveField(null)}
                       />
-                      {activeField === 'email' && (
+                      {activeField === 'subject' && (
+                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl blur opacity-50" />
+                      )}
+                    </div>
+
+                    <div className="relative">
+                      <Label htmlFor="message" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                        <Heart className="w-4 h-4 text-purple-500" />
+                        تفاصيل المشروع
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
+                        placeholder="أخبرنا عن مشروعك وما تحتاجه... كلما كانت التفاصيل أكثر، كان بإمكاننا مساعدتك بشكل أفضل! ✨"
+                        className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 resize-none rounded-xl"
+                        onFocus={() => setActiveField('message')}
+                        onBlur={() => setActiveField(null)}
+                      />
+                      {activeField === 'message' && (
                         <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-50" />
                       )}
                     </div>
-                  </div>
-                  
-                  <div className="relative">
-                    <Label htmlFor="subject" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                      <Star className="w-4 h-4 text-cyan-500" />
-                      موضوع الرسالة
-                    </Label>
-                    <Input
-                      id="subject"
-                      placeholder="اختر موضوع رسالتك"
-                      className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
-                      onFocus={() => setActiveField('subject')}
-                      onBlur={() => setActiveField(null)}
-                    />
-                    {activeField === 'subject' && (
-                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl blur opacity-50" />
-                    )}
-                  </div>
 
-                  <div className="relative">
-                    <Label htmlFor="message" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-purple-500" />
-                      تفاصيل المشروع
-                    </Label>
-                    <Textarea
-                      id="message"
-                      rows={5}
-                      placeholder="أخبرنا عن مشروعك وما تحتاجه... كلما كانت التفاصيل أكثر، كان بإمكاننا مساعدتك بشكل أفضل! ✨"
-                      className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 resize-none rounded-xl"
-                      onFocus={() => setActiveField('message')}
-                      onBlur={() => setActiveField(null)}
-                    />
-                    {activeField === 'message' && (
-                      <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-50" />
-                    )}
-                  </div>
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
+                      <Button 
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="relative w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold text-lg py-6 rounded-xl shadow-2xl shadow-cyan-500/50 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+                      >
+                        <span className="flex items-center justify-center gap-3">
+                          {isSubmitting ? (
+                            <>
+                              <Loader2 className="w-5 h-5 animate-spin" />
+                              جاري الإرسال...
+                            </>
+                          ) : (
+                            <>
+                              🚀 إرسال الرسالة
+                              <Send className="w-5 h-5 group-hover:animate-bounce" />
+                            </>
+                          )}
+                        </span>
+                      </Button>
+                    </div>
 
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                    <Button className="relative w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-bold text-lg py-6 rounded-xl shadow-2xl shadow-cyan-500/50 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105">
-                      <span className="flex items-center justify-center gap-3">
-                        🚀 إرسال الرسالة
-                        <Send className="w-5 h-5 group-hover:animate-bounce" />
-                      </span>
-                    </Button>
+                  </form>
+                ) : (
+                  /* Thank You Message */
+                  <div className="text-center space-y-8 animate-slide-up">
+                    {/* Success Icon */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="absolute -inset-4 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full opacity-20 blur-xl animate-pulse-slow" />
+                        <div className="relative w-24 h-24 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/50 animate-bounce-in">
+                          <CheckCircle className="w-12 h-12 text-white animate-pulse-slow" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Thank You Text */}
+                    <div className="space-y-4">
+                      <h3 className="text-4xl font-extrabold">
+                        <span className="bg-gradient-to-r from-green-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
+                          تم الإرسال بنجاح! 🎉
+                        </span>
+                      </h3>
+                      
+                      <div className="space-y-3 text-xl text-muted-foreground">
+                        <p className="flex items-center justify-center gap-3">
+                          <Heart className="w-6 h-6 text-red-500 animate-pulse" />
+                          شكراً لك على تواصلك معنا!
+                          <Sparkles className="w-6 h-6 text-yellow-500 animate-pulse" />
+                        </p>
+                        <p>
+                          تم استلام رسالتك بنجاح وسيتم <span className="text-green-600 font-bold">التواصل معك قريباً</span>
+                        </p>
+                        <p className="text-lg">
+                          فريق وتار متحمس للعمل معك على تحويل فكرتك إلى <span className="text-cyan-600 font-bold animate-pulse">واقع رقمي مذهل</span> ✨
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Decorative Elements */}
+                    <div className="flex justify-center space-x-4 rtl:space-x-reverse">
+                      {[...Array(5)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-3 h-3 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full animate-bounce"
+                          style={{ animationDelay: `${i * 0.2}s` }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </form>
+                )}
 
                 {/* Decorative Elements */}
                 <div className="absolute top-6 right-6 w-4 h-4 bg-cyan-400/40 rounded-full animate-pulse-slow" />
