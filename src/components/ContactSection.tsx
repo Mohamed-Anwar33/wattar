@@ -150,95 +150,35 @@ const ContactSection = () => {
         {/* Spectacular Section Header */}
         <div className={`text-center mb-14 md:mb-16 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}> 
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 md:mb-8 relative">
-              <span className="bg-gradient-to-r from-cyan-600 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                تواصل معنا
-              </span>
-              <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-purple-500/15 rounded-3xl blur-3xl opacity-40 animate-pulse-slow" />
-            </h2>
+            {/* Section title removed per request */}
             
             {/* Floating Icons Around Title */}
             <div className={`absolute -top-8 -right-8 transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0'}`}>
               <MessageCircle className="w-8 h-8 text-cyan-500 animate-pulse-slow" />
             </div>
             <div className={`absolute -bottom-6 -left-6 transition-all duration-1000 ${isVisible ? 'animate-float opacity-40' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
-              <Sparkles className="w-6 h-6 text-purple-500 animate-pulse-slow" />
+              <Sparkles className="w-6 h-6 text-foreground animate-pulse-slow" />
             </div>
           </div>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
-            🚀 هل أنت مستعد لتحويل فكرتك إلى <span className="text-cyan-600 font-bold animate-pulse">واقع رقمي مذهل</span>؟ 
-            تواصل معنا اليوم ودعنا نساعدك في إنشاء شيء <span className="text-purple-600 font-bold glow-soft">استثنائي</span> معاً ✨
-          </p>
+          {/* Intro paragraph removed per request */}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Side - Lottie Animation & Contact Info */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}> 
-            {/* Lottie Animation */}
-            <div className="relative mb-8 md:mb-12 hidden lg:block">
-              <div className="w-full max-w-md mx-auto relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/15 to-purple-500/15 rounded-3xl blur-2xl animate-pulse-slow" />
-                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-6 border border-white/30 shadow-2xl">
-                  <DotLottieReact
-                    src="https://lottie.host/bf1f4ee7-d88f-4b94-bcf0-5ea07a47ed28/br8dyJzXli.lottie"
-                    loop
-                    autoplay
-                    className="w-full h-64"
-                  />
-                </div>
-              </div>
-            </div>
-
-
-            {/* Enhanced Social Media */}
-            <div className="relative">
-              <h4 className="font-bold text-xl text-foreground mb-6 text-center">تابعنا على</h4>
-              <div className="flex justify-center gap-6">
-                {/* Instagram */}
-                <a
-                  href="https://www.instagram.com/wattar_ksa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="group relative"
-                >
-                  <span className="absolute -inset-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                  <span className="relative w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-pink-500/50">
-                    <Instagram className="w-6 h-6 text-white" />
-                  </span>
-                </a>
-                {/* X (Twitter) */}
-                <a
-                  href="https://x.com/wattar_ksa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X (Twitter)"
-                  className="group relative"
-                >
-                  <span className="absolute -inset-2 bg-gradient-to-r from-slate-800 to-slate-600 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
-                  <span className="relative w-14 h-14 bg-gradient-to-r from-slate-800 to-slate-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl shadow-slate-800/40">
-                    <Twitter className="w-6 h-6 text-white" />
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Enhanced Contact Form */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`} style={{ animationDelay: '0.3s' }}>
+          {/* Right Column in RTL - Contact Form */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-50 animate-pulse-slow" />
               <div className="relative max-w-xl mx-auto bg-white/90 dark:bg-slate-800/80 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/30 dark:border-slate-700/40 shadow-2xl">
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-                    <span className="bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-foreground">
+                    <span className="text-foreground">
                       تواصل معنا
                     </span>
                   </h3>
                 </div>
                 
-{!showThankYou ? (
+                {!showThankYou ? (
                   <form 
                     action="https://formsubmit.co/ajax/contact@example.com"
                     method="POST"
@@ -400,8 +340,8 @@ const ContactSection = () => {
 
                     {/* Thank You Text */}
                     <div className="space-y-4">
-                      <h3 className="text-4xl font-extrabold">
-                        <span className="bg-gradient-to-r from-green-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
+                      <h3 className="text-4xl font-extrabold text-foreground">
+                        <span className="text-foreground">
                           تم الإرسال بنجاح! 🎉
                         </span>
                       </h3>
@@ -413,10 +353,10 @@ const ContactSection = () => {
                           <Sparkles className="w-6 h-6 text-yellow-500 animate-pulse" />
                         </p>
                         <p>
-                          تم استلام رسالتك بنجاح وسيتم <span className="text-green-600 font-bold">التواصل معك قريباً</span>
+                          تم استلام رسالتك بنجاح وسيتم <span className="text-foreground font-bold">التواصل معك قريباً</span>
                         </p>
                         <p className="text-lg">
-                          فريق وتار متحمس للعمل معك على تحويل فكرتك إلى <span className="text-cyan-600 font-bold animate-pulse">واقع رقمي مذهل</span> ✨
+                          فريق وتار متحمس للعمل معك على تحويل فكرتك إلى <span className="text-foreground font-bold">واقع رقمي مذهل</span> ✨
                         </p>
                       </div>
                     </div>
@@ -433,12 +373,30 @@ const ContactSection = () => {
                     </div>
                   </div>
                 )}
-
                 {/* Decorative Elements */}
                 <div className="absolute top-6 right-6 w-4 h-4 bg-cyan-400/40 rounded-full animate-pulse-slow" />
                 <div className="absolute bottom-6 left-6 w-3 h-3 bg-purple-400/50 rounded-full animate-float" style={{ animationDelay: '1s' }} />
               </div>
             </div>
+          </div>
+
+          {/* Left Column in RTL - Lottie/Visual */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`} style={{ animationDelay: '0.2s' }}> 
+            {/* Lottie Animation */}
+            <div className="relative mb-8 md:mb-12 hidden lg:block">
+              <div className="w-full max-w-md mx-auto relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/15 to-purple-500/15 rounded-3xl blur-2xl animate-pulse-slow" />
+                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-6 border border-white/30 shadow-2xl">
+                  <DotLottieReact
+                    src="https://lottie.host/bf1f4ee7-d88f-4b94-bcf0-5ea07a47ed28/br8dyJzXli.lottie"
+                    loop
+                    autoplay
+                    className="w-full h-64"
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Social media block removed per request */}
           </div>
         </div>
       </div>

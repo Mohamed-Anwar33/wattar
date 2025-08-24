@@ -1,4 +1,5 @@
 import { Heart, Mail, Phone, MapPin, Instagram, Twitter, ArrowUp } from "lucide-react";
+import IconBadge from "@/components/ui/IconBadge";
 import { useState, useEffect } from "react";
 import logoImage from '../assets/logo.png';
 
@@ -54,33 +55,29 @@ const Footer = () => {
               <img 
                 src={logoImage} 
                 alt="Wattar Logo" 
-                className="w-16 h-16 object-contain drop-shadow-lg" 
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain drop-shadow-lg" 
               />
             </div>
-            <p className="text-lg font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
+            <p className="text-lg font-semibold text-muted-foreground mb-6">
               شريكك في صناعة الأثر الرقمي
             </p>
             
-            {/* Social Media */}
+            {/* Social Media (using IconBadge color variants) */}
             <div className="flex gap-4">
-              <a
+              <IconBadge
                 href="https://www.instagram.com/wattar_ksa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-pink-500/30"
-              >
-                <Instagram className="w-5 h-5 text-white" />
-              </a>
-              <a
+                ariaLabel="Instagram"
+                variant="yellow-teal"
+                size="lg"
+                icon={<Instagram className="w-6 h-6" />}
+              />
+              <IconBadge
                 href="https://x.com/wattar_ksa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X (Twitter)"
-                className="w-10 h-10 bg-gradient-to-r from-slate-800 to-slate-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-slate-800/30"
-              >
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
+                ariaLabel="X (Twitter)"
+                variant="teal-yellow"
+                size="lg"
+                icon={<Twitter className="w-6 h-6" />}
+              />
             </div>
           </div>
 

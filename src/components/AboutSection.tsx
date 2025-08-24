@@ -156,28 +156,28 @@ const AboutSection = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
             <div className="relative">
               {/* Glowing Title */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 relative">
-                <span className="bg-gradient-to-r from-[#008080] via-[#00a0a0] to-[#008080] bg-clip-text text-transparent animate-gradient-x">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 relative text-foreground">
+                <span className="text-foreground">
                   نبذة عنا
                 </span>
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#008080]/20 to-[#FFEB3B]/20 rounded-lg blur-lg opacity-30 animate-pulse-slow" />
               </h2>
               
               <div className="space-y-6 text-lg leading-relaxed">
-                <p className="text-foreground relative">
-                  🚀 في <span className="text-[#008080] font-bold glow-soft neon-pulse">وتار</span>، نحن لا نصنع مواقع عادية... 
-                  <span className="text-[#FFEB3B] font-bold animate-pulse">نحن نخلق تجارب رقمية تخطف الأنفاس!</span> 
+                <p className="text-muted-foreground relative">
+                  🚀 في <span className="text-foreground font-bold">وتار</span>، نحن لا نصنع مواقع عادية... 
+                  <span className="text-foreground font-bold">نحن نخلق تجارب رقمية تخطف الأنفاس!</span> 
                   كل مشروع هو رحلة إبداعية تبدأ بحلمك وتنتهي بواقع يفوق توقعاتك.
                 </p>
                 <p className="text-muted-foreground relative">
-                  ⚡ <span className="text-[#008080] font-semibold">أكثر من 100 مشروع</span> حولناه من مجرد فكرة إلى 
-                  <span className="text-[#FFEB3B] font-bold"> إمبراطورية رقمية!</span> 
+                  ⚡ <span className="text-foreground font-semibold">أكثر من 100 مشروع</span> حولناه من مجرد فكرة إلى 
+                  <span className="text-foreground font-bold"> إمبراطورية رقمية!</span> 
                   نحن السحرة الذين يحولون الأكواد إلى معجزات، والتصاميم إلى قصص تُحكى.
                 </p>
                 <p className="text-foreground font-medium">
-                  🎯 <span className="text-[#008080] font-bold">مهمتنا؟</span> أن نجعل علامتك التجارية 
-                  <span className="text-[#FFEB3B] font-bold animate-pulse">النجم الأول</span> في سماء الإنترنت! 
-                  نحن لا نبني مواقع... نحن نبني <span className="text-[#008080] font-bold glow-soft">إمبراطوريات رقمية!</span>
+                  🎯 <span className="text-foreground font-bold">مهمتنا؟</span> أن نجعل علامتك التجارية 
+                  <span className="text-foreground font-bold">النجم الأول</span> في سماء الإنترنت! 
+                  نحن لا نبني مواقع... نحن نبني <span className="text-foreground font-bold">إمبراطوريات رقمية!</span>
                 </p>
                 
                 {/* Enhanced Interactive Stats */}
@@ -194,7 +194,7 @@ const AboutSection = () => {
                         <div className="absolute -inset-2 bg-[#008080]/20 rounded-full animate-ping" />
                       )}
                     </div>
-                    <span className="font-bold text-[#008080] transition-all duration-300 group-hover:text-lg">+100 مشروع مكتمل</span>
+                    <span className="font-bold text-foreground transition-all duration-300 group-hover:text-lg">+100 مشروع مكتمل</span>
                   </div>
                   <div 
                     className={`group flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-[#FFEB3B]/10 to-[#FFEB3B]/5 border border-[#FFEB3B]/30 hover:border-[#FFEB3B]/50 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
@@ -208,7 +208,7 @@ const AboutSection = () => {
                         <div className="absolute -inset-2 bg-[#FFEB3B]/20 rounded-full animate-ping" />
                       )}
                     </div>
-                    <span className="font-bold text-[#FFEB3B] text-shadow-sm transition-all duration-300 group-hover:text-lg">+50 عميل راضٍ</span>
+                    <span className="font-bold text-foreground text-shadow-sm transition-all duration-300 group-hover:text-lg">+50 عميل راضٍ</span>
                   </div>
                   <div 
                     className={`group flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 

@@ -8,7 +8,9 @@
   :root {
     /* Brand Colors - Bright & Vibrant */
     --background: 0 0% 98%;
-    --foreground: 220 15% 15%;
+    /* Text color and heading color */
+    --foreground: 181 100% 25%; /* Teal for body in light mode */
+    --heading-foreground: 181 100% 25%; /* Headings keep this in both modes */
 
     --card: 0 0% 100%;
     --card-foreground: 220 15% 15%;
@@ -24,7 +26,8 @@
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 220 10% 46%;
+    /* Muted text: softer teal than headings for contrast */
+    --muted-foreground: 181 50% 32%;
 
     --accent: 54 100% 62%;
     --accent-foreground: 220 15% 15%;
@@ -58,19 +61,27 @@
   .dark {
     /* Dark Mode - Custom Gradient Background */
     --background: 220 15% 8%;
-    --foreground: 0 0% 95%;
+    /* Foreground text: near-white neutral for maximum readability */
+    --foreground: 210 40% 96%;
+    /* Keep heading color same as light mode */
+    --heading-foreground: 181 100% 25%;
     --card: 220 20% 12%;
     --card-foreground: 0 0% 95%;
     --popover: 220 20% 12%;
     --popover-foreground: 0 0% 95%;
     --primary: 54 100% 65%;
-    --primary-foreground: 220 15% 10%;
+    /* Text on yellow should be dark for contrast */
+    --primary-foreground: 220 15% 15%;
     --secondary: 181 100% 30%;
-    --secondary-foreground: 0 0% 95%;
+    /* Text on teal should be white */
+    --secondary-foreground: 0 0% 98%;
     --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 70%;
+    /* Muted text: soft gray-cyan, clearly dimmer than foreground */
+    --muted-foreground: 210 12% 65%;
+
     --accent: 54 100% 65%;
-    --accent-foreground: 220 15% 10%;
+    /* Text on accent (yellow) should be dark */
+    --accent-foreground: 220 15% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 20%;
@@ -99,6 +110,25 @@
   body {
     @apply bg-background text-foreground font-arabic;
     direction: rtl;
+  }
+  /* In dark mode, force headings that use text-foreground to keep light-mode heading color */
+  .dark h1.text-foreground,
+  .dark h2.text-foreground,
+  .dark h3.text-foreground,
+  .dark h4.text-foreground,
+  .dark h5.text-foreground,
+  .dark h6.text-foreground {
+    color: hsl(var(--heading-foreground));
+  }
+
+  /* Also ensure inner spans with text-foreground inside headings keep the same heading color */
+  .dark h1.text-foreground .text-foreground,
+  .dark h2.text-foreground .text-foreground,
+  .dark h3.text-foreground .text-foreground,
+  .dark h4.text-foreground .text-foreground,
+  .dark h5.text-foreground .text-foreground,
+  .dark h6.text-foreground .text-foreground {
+    color: hsl(var(--heading-foreground));
   }
   
   /* Dark mode custom background gradient */

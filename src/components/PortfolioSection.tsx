@@ -224,8 +224,8 @@ const PortfolioSection = () => {
         {/* Compact Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 relative">
-              <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent animate-gradient-x">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 relative text-foreground">
+              <span className="text-foreground">
                 معرض أعمالنا
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl blur-2xl opacity-40 animate-pulse-slow" />
@@ -241,7 +241,7 @@ const PortfolioSection = () => {
           </div>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            🎨 مجموعة مختارة من أفضل أعمالنا التي تحكي قصص نجاح <span className="text-purple-600 font-bold">استثنائية</span> ✨
+            🎨 مجموعة مختارة من أفضل أعمالنا التي تحكي قصص نجاح <span className="text-foreground font-bold">استثنائية</span> ✨
           </p>
         </div>
 
@@ -254,32 +254,24 @@ const PortfolioSection = () => {
                 key={item.id}
                 className={`group relative transition-all duration-700 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}
                 style={{ animationDelay: `${index * 0.2}s` }}
-                onMouseEnter={() => {
-                  setActiveCard(item.id);
-                  setHoveredCard(item.id);
-                }}
-                onMouseLeave={() => {
-                  setActiveCard(null);
-                  setHoveredCard(null);
-                }}
               >
                 {/* Main Portfolio Card */}
-                <div className={`relative bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white/30 shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-6 ${hoveredCard === item.id ? 'rotate-1 shadow-purple-500/30' : ''}`}>
+                <div className={`relative bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white/30 shadow-2xl transform transition-all duration-500`}>
                   
                   {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-15 transition-all duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 transition-all duration-500`} />
                   
                   {/* Compact Image Container */}
                   <div className="relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
+                      className="w-full h-48 object-cover transition-all duration-700"
                       loading="lazy"
                     />
                     
                     {/* Image Overlay with Stats */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 transition-all duration-500">
                       {/* Top Stats */}
                       <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
                         <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-3 py-1">
@@ -312,8 +304,8 @@ const PortfolioSection = () => {
                       
                       {/* Action Button */}
                       <div className="absolute top-4 right-4">
-                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-purple-500 transition-all duration-300 cursor-pointer group/btn">
-                          <ExternalLink className="w-4 h-4 text-white group-hover/btn:scale-110 transition-transform" />
+                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer group/btn">
+                          <ExternalLink className="w-4 h-4 text-white transition-transform" />
                         </div>
                       </div>
                     </div>
@@ -335,7 +327,7 @@ const PortfolioSection = () => {
                       </span>
                     </div>
                     
-                    <h3 className={`text-base font-bold mb-2 transition-all duration-300 ${activeCard === item.id ? 'text-transparent bg-gradient-to-r bg-clip-text ' + item.gradient + ' scale-105' : 'text-foreground group-hover:text-purple-600'}`}>
+                    <h3 className={`text-base font-bold mb-2 transition-all duration-300 text-foreground`}>
                       {item.title}
                     </h3>
                     
@@ -379,7 +371,7 @@ const PortfolioSection = () => {
                 </div>
 
                 {/* Card Shadow Enhancement */}
-                <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-30 blur-3xl transition-all duration-500 -z-10`} />
+                <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-br ${item.gradient} opacity-0 blur-3xl transition-all duration-500 -z-10`} />
               </div>
             );
           })}

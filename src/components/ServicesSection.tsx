@@ -150,8 +150,8 @@ const ServicesSection = () => {
         {/* Spectacular Section Header */}
         <div className={`text-center mb-10 md:mb-20 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 relative">
-              <span className="bg-gradient-to-r from-[#FFEB3B] via-[#008080] to-[#FF6B6B] bg-clip-text text-transparent animate-gradient-x">
+            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 relative text-foreground">
+              <span className="text-foreground">
                 خدماتنا المذهلة
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-[#FFEB3B]/20 via-[#008080]/20 to-[#FF6B6B]/20 rounded-2xl blur-2xl opacity-40 animate-pulse-slow" />
@@ -180,20 +180,12 @@ const ServicesSection = () => {
                 key={index}
                 className={`group relative transition-all duration-700 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}
                 style={{ animationDelay: `${index * 0.3}s` }}
-                onMouseEnter={() => {
-                  setActiveCard(index);
-                  setHoveredCard(index);
-                }}
-                onMouseLeave={() => {
-                  setActiveCard(null);
-                  setHoveredCard(null);
-                }}
               >
                 {/* Main Service Card */}
-                <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-[2rem] p-8 border border-white/20 shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-4 ${service.shadowColor} ${service.glowColor} ${hoveredCard === index ? 'rotate-1' : ''}`}>
+                <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-[2rem] p-8 border border-white/20 shadow-2xl transform transition-all duration-500 ${service.shadowColor}`}>
                   
                   {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-[2rem] transition-all duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 rounded-[2rem] transition-all duration-500`} />
                   
                   {/* Floating Particles for Each Card */}
                   {service.particles.map((particle, pIndex) => {
@@ -201,7 +193,7 @@ const ServicesSection = () => {
                     return (
                       <div
                         key={pIndex}
-                        className={`absolute ${particle.position} opacity-0 group-hover:opacity-60 transition-all duration-500 animate-float`}
+                        className={`absolute ${particle.position} opacity-0 transition-all duration-500 animate-float`}
                         style={{ animationDelay: particle.delay }}
                       >
                         <ParticleIcon className="w-4 h-4 text-current" />
@@ -211,26 +203,24 @@ const ServicesSection = () => {
 
                   {/* Spectacular Icon Container */}
                   <div className="relative mb-8">
-                    <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${service.gradient} shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 ${activeCard === index ? 'animate-pulse-slow' : ''}`}>
+                    <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${service.gradient} shadow-2xl transform transition-all duration-500`}>
                       <Icon className="w-12 h-12 text-white drop-shadow-lg" />
                       
                       {/* Magical Glow Ring */}
-                      {activeCard === index && (
-                        <div className="absolute -inset-4 rounded-full border-2 border-current opacity-30 animate-ping" />
-                      )}
+                      
                     </div>
                     
                     {/* Floating Icon Shadows */}
-                    <div className={`absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-xl group-hover:opacity-40 transition-all duration-500`} />
+                    <div className={`absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-xl transition-all duration-500`} />
                   </div>
 
                   {/* Enhanced Content */}
                   <div className="relative z-10">
-                    <h3 className={`text-2xl font-bold mb-6 transition-all duration-300 ${activeCard === index ? 'text-transparent bg-gradient-to-r bg-clip-text ' + service.gradient + ' scale-105' : 'text-foreground group-hover:text-[#008080]'}`}>
+                    <h3 className={`text-2xl font-bold mb-6 transition-all duration-300 text-foreground`}>
                       {service.title}
                     </h3>
                     
-                    <p className={`text-muted-foreground leading-relaxed text-lg transition-all duration-300 ${activeCard === index ? 'text-foreground/90 scale-105' : ''}`}>
+                    <p className={`text-muted-foreground leading-relaxed text-lg transition-all duration-300`}>
                       {service.description}
                     </p>
 
@@ -241,7 +231,7 @@ const ServicesSection = () => {
                           className={`h-full bg-gradient-to-r ${service.gradient} transform transition-all duration-1000 ${activeCard === index ? 'translate-x-0' : '-translate-x-full'}`}
                         />
                       </div>
-                      <div className={`mt-3 text-sm font-medium transition-all duration-300 ${activeCard === index ? 'opacity-100 text-[#008080]' : 'opacity-0'}`}>
+                      <div className={`mt-3 text-sm font-medium transition-all duration-300 opacity-0`}>
                         جاهز للإبداع معك! 🚀
                       </div>
                     </div>
@@ -252,13 +242,11 @@ const ServicesSection = () => {
                   <div className="absolute bottom-4 left-4 w-2 h-2 bg-[#008080]/40 rounded-full animate-float" style={{ animationDelay: '1s' }} />
                   
                   {/* Hover Ripple Effect */}
-                  {activeCard === index && (
-                    <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse" />
-                  )}
+                  
                 </div>
 
                 {/* Card Shadow Enhancement */}
-                <div className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500 -z-10`} />
+                <div className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${service.gradient} opacity-0 blur-2xl transition-all duration-500 -z-10`} />
               </div>
             );
           })}
