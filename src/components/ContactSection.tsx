@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Instagram, Twitter, Send, Star, Sparkles, Crown, Heart, Zap, MessageCircle, CheckCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Twitter, Send, Sparkles, Crown, Heart, Zap, MessageCircle, CheckCircle, Loader2 } from "lucide-react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import logoImage from '../assets/logo.png';
 
@@ -80,7 +80,7 @@ const ContactSection = () => {
       setTimeout(() => setShowThankYou(false), 4000);
     } catch (err) {
       console.error('Contact form submit error:', err);
-      alert('تعذر إرسال الرسالة حالياً. حاول مرة أخرى لاحقاً أو تواصل معنا عبر البريد: WATTAR_SALES@outlook.sa');
+      alert('تعذر إرسال الرسالة حالياً. حاول مرة أخرى لاحقاً.');
     } finally {
       setIsSubmitting(false);
     }
@@ -90,22 +90,23 @@ const ContactSection = () => {
     <section 
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative py-32 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-cyan-900/20 overflow-hidden"
+      id="contact"
+      className="relative py-16 md:py-28 scroll-mt-24 md:scroll-mt-28 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-cyan-900/20 overflow-hidden"
     >
       {/* Dynamic Background Spotlight */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-15"
+        className="pointer-events-none absolute inset-0 opacity-10"
         style={{
           background: `radial-gradient(1000px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.2), transparent 70%)`,
         }}
       />
       
       {/* Background Logo Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.01]">
         <img 
           src={logoImage} 
           alt="Wattar Logo" 
-          className="w-[700px] h-[700px] object-contain animate-pulse-slow transform -rotate-6" 
+          className="w-[560px] h-[560px] md:w-[680px] md:h-[680px] object-contain animate-pulse-slow transform -rotate-6" 
         />
       </div>
 
@@ -141,31 +142,31 @@ const ContactSection = () => {
         ))}
 
         {/* Dynamic Light Rays */}
-        <div className={`absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-25' : 'opacity-0'}`} />
-        <div className={`absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-purple-400/15 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-20' : 'opacity-0'}`} style={{ animationDelay: '1.5s' }} />
+        <div className={`absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-20' : 'opacity-0'}`} />
+        <div className={`absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-purple-400/10 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-15' : 'opacity-0'}`} style={{ animationDelay: '1.5s' }} />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Spectacular Section Header */}
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-14 md:mb-16 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}> 
           <div className="relative inline-block">
-            <h2 className="text-5xl md:text-7xl font-extrabold mb-8 relative">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 md:mb-8 relative">
               <span className="bg-gradient-to-r from-cyan-600 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
                 تواصل معنا
               </span>
-              <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-3xl opacity-50 animate-pulse-slow" />
+              <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-purple-500/15 rounded-3xl blur-3xl opacity-40 animate-pulse-slow" />
             </h2>
             
             {/* Floating Icons Around Title */}
-            <div className={`absolute -top-8 -right-8 transition-all duration-1000 ${isVisible ? 'animate-float opacity-60' : 'opacity-0'}`}>
+            <div className={`absolute -top-8 -right-8 transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0'}`}>
               <MessageCircle className="w-8 h-8 text-cyan-500 animate-pulse-slow" />
             </div>
-            <div className={`absolute -bottom-6 -left-6 transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
+            <div className={`absolute -bottom-6 -left-6 transition-all duration-1000 ${isVisible ? 'animate-float opacity-40' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
               <Sparkles className="w-6 h-6 text-purple-500 animate-pulse-slow" />
             </div>
           </div>
           
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
             🚀 هل أنت مستعد لتحويل فكرتك إلى <span className="text-cyan-600 font-bold animate-pulse">واقع رقمي مذهل</span>؟ 
             تواصل معنا اليوم ودعنا نساعدك في إنشاء شيء <span className="text-purple-600 font-bold glow-soft">استثنائي</span> معاً ✨
           </p>
@@ -173,11 +174,11 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Side - Lottie Animation & Contact Info */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}> 
             {/* Lottie Animation */}
-            <div className="relative mb-12">
+            <div className="relative mb-8 md:mb-12 hidden lg:block">
               <div className="w-full max-w-md mx-auto relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl animate-pulse-slow" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/15 to-purple-500/15 rounded-3xl blur-2xl animate-pulse-slow" />
                 <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-6 border border-white/30 shadow-2xl">
                   <DotLottieReact
                     src="https://lottie.host/bf1f4ee7-d88f-4b94-bcf0-5ea07a47ed28/br8dyJzXli.lottie"
@@ -189,55 +190,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Contact Methods */}
-            <div className="space-y-6 mb-8">
-              <div className="group relative overflow-hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-xl hover:shadow-cyan-500/20 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center shadow-2xl shadow-cyan-500/50 group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-foreground group-hover:text-cyan-600 transition-colors">البريد الإلكتروني</h4>
-                    <a
-                      href="mailto:WATTAR_SALES@outlook.sa"
-                      className="inline-flex items-center px-2.5 py-1.5 rounded-md text-muted-foreground font-medium hover:text-cyan-700 dark:hover:text-cyan-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 transition-colors border border-transparent hover:border-cyan-200 dark:hover:border-cyan-600 hover:bg-cyan-50 dark:hover:bg-slate-700/50"
-                    >
-                      WATTAR_SALES@outlook.sa
-                    </a>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 w-3 h-3 bg-cyan-400/40 rounded-full animate-pulse-slow" />
-              </div>
-
-              <div className="group relative overflow-hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-xl hover:shadow-purple-500/20 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-2xl shadow-purple-500/50 group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-foreground group-hover:text-purple-600 transition-colors">الهاتف</h4>
-                    <p className="text-muted-foreground font-medium">+966 50 123 4567</p>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 w-3 h-3 bg-purple-400/40 rounded-full animate-pulse-slow" />
-              </div>
-
-              <div className="group relative overflow-hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-xl hover:shadow-cyan-500/20 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center shadow-2xl shadow-cyan-500/50 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-foreground group-hover:text-cyan-600 transition-colors">الموقع</h4>
-                    <p className="text-muted-foreground font-medium">الرياض، المملكة العربية السعودية</p>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 w-3 h-3 bg-teal-400/40 rounded-full animate-pulse-slow" />
-              </div>
-            </div>
 
             {/* Enhanced Social Media */}
             <div className="relative">
@@ -277,21 +229,18 @@ const ContactSection = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`} style={{ animationDelay: '0.3s' }}>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-50 animate-pulse-slow" />
-              <div className="relative bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-2xl">
+              <div className="relative max-w-xl mx-auto bg-white/90 dark:bg-slate-800/80 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/30 dark:border-slate-700/40 shadow-2xl">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                     <span className="bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent">
-                      ابدأ مشروعك معنا
+                      تواصل معنا
                     </span>
                   </h3>
-                  <p className="text-muted-foreground">
-                    🎯 احكي لنا عن حلمك ودعنا نحوله إلى واقع مذهل!
-                  </p>
                 </div>
                 
 {!showThankYou ? (
                   <form 
-                    action="https://formsubmit.co/ajax/WATTAR_SALES@outlook.sa"
+                    action="https://formsubmit.co/ajax/contact@example.com"
                     method="POST"
                     onSubmit={handleSubmit}
                     className="space-y-6"
@@ -310,13 +259,13 @@ const ContactSection = () => {
                       <div className="relative">
                         <Label htmlFor="name" className="text-foreground font-bold mb-3 block flex items-center gap-2">
                           <Crown className="w-4 h-4 text-cyan-500" />
-                          الاسم الكامل
+                          الاسم
                         </Label>
                         <Input
                           id="name"
                           name="name"
                           required
-                          placeholder="أدخل اسمك الكامل"
+                          placeholder="الاسم"
                           className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
                           onFocus={() => setActiveField('name')}
                           onBlur={() => setActiveField(null)}
@@ -326,38 +275,59 @@ const ContactSection = () => {
                         )}
                       </div>
                       <div className="relative">
-                        <Label htmlFor="email" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                        <Label htmlFor="company" className="text-foreground font-bold mb-3 block flex items-center gap-2">
                           <Mail className="w-4 h-4 text-purple-500" />
-                          البريد الإلكتروني
+                          الشركة
                         </Label>
                         <Input
-                          id="email"
-                          name="email"
-                          type="email"
+                          id="company"
+                          name="company"
+                          type="text"
                           required
-                          placeholder="example@domain.com"
+                          placeholder="الشركة"
                           className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
-                          onFocus={() => setActiveField('email')}
+                          onFocus={() => setActiveField('company')}
                           onBlur={() => setActiveField(null)}
                         />
-                        {activeField === 'email' && (
+                        {activeField === 'company' && (
                           <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-50" />
                         )}
                       </div>
                     </div>
                     
+                    {/* Email */}
+                    <div className="relative">
+                      <Label htmlFor="email" className="text-foreground font-bold mb-3 block flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-purple-500" />
+                        الايميل
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="الايميل"
+                        className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
+                        onFocus={() => setActiveField('email')}
+                        onBlur={() => setActiveField(null)}
+                      />
+                      {activeField === 'email' && (
+                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-50" />
+                      )}
+                    </div>
+
                     {/* Phone Number */}
                     <div className="relative">
                       <Label htmlFor="phone" className="text-foreground font-bold mb-3 block flex items-center gap-2">
                         <Phone className="w-4 h-4 text-teal-500" />
-                        رقم الهاتف
+                        رقم التواصل
                       </Label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
                         required
-                        placeholder="مثال: +966 50 123 4567"
+                        placeholder="رقم التواصل"
                         pattern="^[+]?[^a-zA-Z]{7,20}$"
                         autoComplete="tel"
                         className="bg-background/80 border-2 border-teal-200/50 focus:border-teal-500 focus:ring-teal-500/20 transition-all duration-300 rounded-xl h-12"
@@ -369,35 +339,19 @@ const ContactSection = () => {
                       )}
                     </div>
 
-                    <div className="relative">
-                      <Label htmlFor="subject" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Star className="w-4 h-4 text-cyan-500" />
-                        موضوع الرسالة
-                      </Label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        placeholder="اختر موضوع رسالتك"
-                        className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
-                        onFocus={() => setActiveField('subject')}
-                        onBlur={() => setActiveField(null)}
-                      />
-                      {activeField === 'subject' && (
-                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl blur opacity-50" />
-                      )}
-                    </div>
+                    
 
                     <div className="relative">
                       <Label htmlFor="message" className="text-foreground font-bold mb-3 block flex items-center gap-2">
                         <Heart className="w-4 h-4 text-purple-500" />
-                        تفاصيل المشروع
+                        نبذة عن نطاق العمل المطلوب
                       </Label>
                       <Textarea
                         id="message"
                         name="message"
                         required
                         rows={5}
-                        placeholder="أخبرنا عن مشروعك وما تحتاجه... كلما كانت التفاصيل أكثر، كان بإمكاننا مساعدتك بشكل أفضل! ✨"
+                        placeholder="نبذة عن نطاق العمل المطلوب"
                         className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 resize-none rounded-xl"
                         onFocus={() => setActiveField('message')}
                         onBlur={() => setActiveField(null)}
@@ -422,7 +376,7 @@ const ContactSection = () => {
                             </>
                           ) : (
                             <>
-                              🚀 إرسال الرسالة
+                              إرسال
                               <Send className="w-5 h-5 group-hover:animate-bounce" />
                             </>
                           )}

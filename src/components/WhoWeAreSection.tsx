@@ -43,12 +43,10 @@ const WhoWeAreSection = () => {
   };
 
   const scrollToContact = () => {
+    // Temporary fallback kept for reference; replaced by WhatsApp open below
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+      /* no-op */
     }
   };
 
@@ -122,7 +120,15 @@ const WhoWeAreSection = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.9s' }}>
             <div className="relative inline-block mb-6">
               <button
-                onClick={scrollToContact}
+                onClick={() => {
+                  // Build WhatsApp URL using env number if available
+                  const number = (import.meta as any).env?.VITE_WHATSAPP_NUMBER || '';
+                  const defaultMsg = 'مرحبًا، أود الاستفسار عن خدماتكم';
+                  const url = number
+                    ? `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`
+                    : 'https://wa.me/'; // Fallback until number is provided
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className="group relative overflow-hidden bg-gradient-to-r from-[#008080] via-[#00a0a0] to-[#FFEB3B] p-1 rounded-2xl shadow-xl hover:shadow-[0_15px_35px_rgba(0,128,128,0.4)] transition-all duration-500 transform hover:scale-105 hover:-translate-y-1"
@@ -176,12 +182,6 @@ const WhoWeAreSection = () => {
             </div>
           </div>
 
-          {/* Call to Action Text */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '1.2s' }}>
-            <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              💫 اكتشف كيف يمكننا مساعدتك في تحقيق أهدافك الرقمية
-            </p>
-          </div>
         </div>
       </div>
     </section>

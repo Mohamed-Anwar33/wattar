@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,25 +70,32 @@ const Navigation = () => {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <button 
-            className="hidden md:block btn-primary text-sm px-6 py-2"
-            onClick={() => scrollToSection('contact')}
-          >
-            ابدأ مشروعك
-          </button>
+          {/* Theme Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+            <button 
+              className="btn-primary text-sm px-6 py-2"
+              onClick={() => scrollToSection('contact')}
+            >
+              تواصل معنا
+            </button>
+          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
-          </button>
+          {/* Mobile Theme Toggle + Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6 text-foreground" />
+              ) : (
+                <Menu className="w-6 h-6 text-foreground" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -105,12 +113,15 @@ const Navigation = () => {
                 </li>
               ))}
             </ul>
-            <button 
-              className="btn-primary w-full mt-6"
-              onClick={() => scrollToSection('contact')}
-            >
-              ابدأ مشروعك
-            </button>
+            <div className="flex items-center justify-between mt-6 gap-4">
+              <ThemeToggle />
+              <button 
+                className="btn-primary flex-1"
+                onClick={() => scrollToSection('contact')}
+              >
+                تواصل معنا
+              </button>
+            </div>
           </div>
         )}
       </div>

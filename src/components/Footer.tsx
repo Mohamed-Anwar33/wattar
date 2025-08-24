@@ -57,10 +57,6 @@ const Footer = () => {
                 className="w-16 h-16 object-contain drop-shadow-lg" 
               />
             </div>
-            <p className="text-gray-300 leading-relaxed mb-4 max-w-md">
-              وكالة إبداعية متخصصة في التصميم والتطوير والحلول الرقمية المبتكرة. 
-              نحول أفكارك إلى واقع رقمي مذهل يترك انطباعاً لا يُنسى.
-            </p>
             <p className="text-lg font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
               شريكك في صناعة الأثر الرقمي
             </p>
@@ -135,7 +131,7 @@ const Footer = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 z-50"
+          className="fixed bottom-8 left-8 w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 z-50"
         >
           <ArrowUp className="w-5 h-5 text-white" />
         </button>

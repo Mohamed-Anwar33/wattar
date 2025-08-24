@@ -50,7 +50,8 @@ const AboutSection = () => {
     <section 
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      id="about"
+      className="relative py-16 md:py-24 scroll-mt-24 md:scroll-mt-28 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
       
       {/* Dynamic Background Spotlight */}
       <div

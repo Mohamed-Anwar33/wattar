@@ -100,7 +100,8 @@ const PortfolioSection = () => {
     <section 
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-purple-900/20 overflow-hidden"
+      id="portfolio"
+      className="relative py-16 md:py-24 scroll-mt-24 md:scroll-mt-28 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-purple-900/20 overflow-hidden"
     >
       {/* Dynamic Background Spotlight */}
       <div
@@ -387,48 +388,8 @@ const PortfolioSection = () => {
         {/* Compact Call to Action */}
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '1s' }}>
           <div className="relative inline-block mb-6">
-            <h3 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-                هل أنت مستعد لتكون التالي؟
-              </span>
-            </h3>
-            <p className="text-lg text-muted-foreground mb-6">
-              🚀 انضم إلى قائمة عملائنا المميزين واحصل على مشروع استثنائي!
-            </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button 
-              className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                🎨 ابدأ مشروعك الآن
-                <Rocket className="w-5 h-5 group-hover:animate-bounce" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-            </button>
-            
-            <button 
-              className="group relative border-2 border-purple-500 text-purple-600 bg-transparent px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-500 hover:text-white transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const element = document.getElementById('services');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              <span className="flex items-center gap-2">
-                ✨ المزيد من الأعمال
-                <Trophy className="w-5 h-5 group-hover:animate-spin" />
-              </span>
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -92,9 +92,10 @@ const ServicesSection = () => {
 
   return (
     <section 
+      id="services"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
+      className="relative py-16 md:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden scroll-mt-24 md:scroll-mt-28"
     >
       {/* Dynamic Background Spotlight */}
       <div
@@ -147,9 +148,9 @@ const ServicesSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Spectacular Section Header */}
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-10 md:mb-20 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
-            <h2 className="text-5xl md:text-7xl font-extrabold mb-8 relative">
+            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 relative">
               <span className="bg-gradient-to-r from-[#FFEB3B] via-[#008080] to-[#FF6B6B] bg-clip-text text-transparent animate-gradient-x">
                 خدماتنا المذهلة
               </span>
@@ -165,14 +166,13 @@ const ServicesSection = () => {
             </div>
           </div>
           
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            🌟 نحن لا نقدم خدمات عادية... نحن نصنع <span className="text-[#FFEB3B] font-bold animate-pulse">معجزات رقمية</span> تحول أحلامك إلى واقع يفوق التوقعات! 
-            كل خدمة هي <span className="text-[#008080] font-bold glow-soft">تحفة فنية</span> مصممة خصيصاً لتجعل علامتك التجارية تتألق في سماء الإبداع ✨
+          <p className="text-lg md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            نحن نبتكر حلول تصميم وتطوير متقدمة، تُمكّن العلامات التجارية من النمو والتأثير في مستقبل التحول الرقمي بالمملكة
           </p>
         </div>
 
         {/* Revolutionary Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 mb-20">
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-12 mb-12 md:mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -267,48 +267,8 @@ const ServicesSection = () => {
         {/* Epic Call to Action */}
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '1.2s' }}>
           <div className="relative inline-block mb-8">
-            <h3 className="text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#008080] to-[#FFEB3B] bg-clip-text text-transparent">
-                هل أنت مستعد لتحويل حلمك إلى واقع مذهل؟
-              </span>
-            </h3>
-            <p className="text-xl text-muted-foreground mb-8">
-              🎯 انضم إلى عائلة العملاء الراضين واكتشف قوة الإبداع الحقيقي!
-            </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button 
-              className="group relative btn-primary text-xl px-12 py-6 overflow-hidden"
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                🚀 ابدأ رحلة الإبداع معنا
-                <Rocket className="w-6 h-6 group-hover:animate-bounce" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#008080] to-[#20B2AA] opacity-0 group-hover:opacity-100 transition-all duration-300" />
-            </button>
-            
-            <button 
-              className="group relative border-2 border-[#FFEB3B] text-[#008080] bg-transparent px-12 py-6 rounded-full font-bold text-xl hover:bg-[#FFEB3B] hover:text-slate-900 transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const element = document.getElementById('portfolio');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              <span className="flex items-center gap-3">
-                💫 شاهد أعمالنا السحرية
-                <Star className="w-6 h-6 group-hover:animate-spin" />
-              </span>
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -56,25 +56,38 @@
   }
 
   .dark {
-    --background: 220 15% 15%;
-    --foreground: 0 0% 98%;
-    --card: 220 15% 18%;
-    --card-foreground: 0 0% 98%;
-    --popover: 220 15% 18%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 54 100% 62%;
-    --primary-foreground: 220 15% 15%;
-    --secondary: 181 100% 25%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 54 100% 62%;
-    --accent-foreground: 220 15% 15%;
+    /* Dark Mode - Custom Gradient Background */
+    --background: 220 15% 8%;
+    --foreground: 0 0% 95%;
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 54 100% 65%;
+    --primary-foreground: 220 15% 10%;
+    --secondary: 181 100% 30%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 54 100% 65%;
+    --accent-foreground: 220 15% 10%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 54 100% 62%;
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 54 100% 65%;
+    
+    /* Dark Mode Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(54 100% 65% / 0.05), hsl(181 100% 30% / 0.05));
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 12%), hsl(220 15% 10%));
+    --gradient-primary: linear-gradient(135deg, hsl(54 100% 65%), hsl(54 100% 58%));
+    --gradient-secondary: linear-gradient(135deg, hsl(181 100% 30%), hsl(181 100% 25%));
+    
+    /* Dark Mode Shadows & Glows */
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.25);
+    --shadow-card: 0 8px 30px hsl(0 0% 0% / 0.35);
+    --shadow-glow-yellow: 0 0 30px hsl(54 100% 65% / 0.4);
+    --shadow-glow-teal: 0 0 30px hsl(181 100% 30% / 0.4);
   }
 }
 
@@ -86,6 +99,12 @@
   body {
     @apply bg-background text-foreground font-arabic;
     direction: rtl;
+  }
+  
+  /* Dark mode custom background gradient */
+  body.dark {
+    background: linear-gradient(135deg, #032226, #002227, #061f23, #032125, #091f21);
+    background-attachment: fixed;
   }
 
   html {
@@ -176,6 +195,20 @@
   
   .shadow-glow-teal {
     box-shadow: var(--shadow-glow-teal);
+  }
+  
+  /* Dark mode enhancements */
+  .dark .card-service {
+    @apply bg-card/80 backdrop-blur-xl border-border/30;
+  }
+  
+  .dark .card-portfolio {
+    @apply bg-card/80 backdrop-blur-xl border-border/30;
+  }
+  
+  /* Slow spin animation for sun icon */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
   }
 }
 
