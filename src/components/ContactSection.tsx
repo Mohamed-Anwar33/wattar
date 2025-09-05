@@ -91,60 +91,10 @@ const ContactSection = () => {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       id="contact"
-      className="relative py-16 md:py-28 scroll-mt-24 md:scroll-mt-28 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-cyan-900/20 overflow-hidden"
+      className="relative py-8 md:py-12 scroll-mt-24 md:scroll-mt-28 bg-background"
     >
-      {/* Dynamic Background Spotlight */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-10"
-        style={{
-          background: `radial-gradient(1000px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6,182,212,0.2), transparent 70%)`,
-        }}
-      />
       
-      {/* Background Logo Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.01]">
-        <img 
-          src={logoImage} 
-          alt="Wattar Logo" 
-          className="w-[560px] h-[560px] md:w-[680px] md:h-[680px] object-contain animate-pulse-slow transform -rotate-6" 
-        />
-      </div>
 
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Geometric Shapes */}
-        <div className={`absolute top-20 left-[5%] w-48 h-48 transition-all duration-1500 ${isVisible ? 'animate-float opacity-12' : 'opacity-0'}`}>
-          <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 via-blue-500/15 to-purple-500/20 rounded-full blur-2xl animate-pulse-slow" />
-          <div className="absolute inset-8 w-32 h-32 bg-gradient-to-tl from-teal-400/10 to-cyan-500/15 rounded-full blur-xl animate-breathe" />
-        </div>
-        
-        <div className={`absolute bottom-24 right-[8%] w-40 h-40 transition-all duration-1500 ${isVisible ? 'animate-float opacity-15' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-purple-500/18 via-pink-500/12 to-cyan-500/18 transform rotate-45 blur-xl animate-morph" />
-        </div>
-
-        {/* Magical Particles */}
-        {Array.from({ length: 25 }).map((_, i) => (
-          <div
-            key={i}
-            className={`absolute rounded-full transition-all duration-1000 ${isVisible ? 'animate-float opacity-30' : 'opacity-0'}`}
-            style={{
-              width: `${2 + (i % 3)}px`,
-              height: `${2 + (i % 3)}px`,
-              left: `${10 + (i * 3.5)}%`,
-              top: `${20 + (i * 2.8)}%`,
-              background: i % 2 === 0 
-                ? 'linear-gradient(45deg, rgba(6,182,212,0.6), rgba(59,130,246,0.4))' 
-                : 'linear-gradient(45deg, rgba(168,85,247,0.5), rgba(236,72,153,0.4))',
-              animationDelay: `${i * 0.3}s`,
-              animationDuration: `${4 + (i % 5)}s`
-            }}
-          />
-        ))}
-
-        {/* Dynamic Light Rays */}
-        <div className={`absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-20' : 'opacity-0'}`} />
-        <div className={`absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-purple-400/10 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-15' : 'opacity-0'}`} style={{ animationDelay: '1.5s' }} />
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Spectacular Section Header */}
@@ -152,13 +102,6 @@ const ContactSection = () => {
           <div className="relative inline-block">
             {/* Section title removed per request */}
             
-            {/* Floating Icons Around Title */}
-            <div className={`absolute -top-8 -right-8 transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0'}`}>
-              <MessageCircle className="w-8 h-8 text-cyan-500 animate-pulse-slow" />
-            </div>
-            <div className={`absolute -bottom-6 -left-6 transition-all duration-1000 ${isVisible ? 'animate-float opacity-40' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
-              <Sparkles className="w-6 h-6 text-foreground animate-pulse-slow" />
-            </div>
           </div>
           
           {/* Intro paragraph removed per request */}
@@ -168,8 +111,7 @@ const ContactSection = () => {
           {/* Right Column in RTL - Contact Form */}
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-50 animate-pulse-slow" />
-              <div className="relative max-w-xl mx-auto bg-white/90 dark:bg-slate-800/80 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/30 dark:border-slate-700/40 shadow-2xl">
+              <div className="relative max-w-xl mx-auto bg-card p-6 md:p-8 rounded-3xl border border-gray-200 shadow-lg">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-foreground">
                     <span className="text-foreground">
@@ -373,9 +315,6 @@ const ContactSection = () => {
                     </div>
                   </div>
                 )}
-                {/* Decorative Elements */}
-                <div className="absolute top-6 right-6 w-4 h-4 bg-cyan-400/40 rounded-full animate-pulse-slow" />
-                <div className="absolute bottom-6 left-6 w-3 h-3 bg-purple-400/50 rounded-full animate-float" style={{ animationDelay: '1s' }} />
               </div>
             </div>
           </div>
@@ -385,8 +324,7 @@ const ContactSection = () => {
             {/* Lottie Animation */}
             <div className="relative mb-8 md:mb-12 hidden lg:block">
               <div className="w-full max-w-md mx-auto relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/15 to-purple-500/15 rounded-3xl blur-2xl animate-pulse-slow" />
-                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-6 border border-white/30 shadow-2xl">
+                <div className="relative bg-card rounded-3xl p-6 border border-gray-200 shadow-lg">
                   <DotLottieReact
                     src="https://lottie.host/bf1f4ee7-d88f-4b94-bcf0-5ea07a47ed28/br8dyJzXli.lottie"
                     loop

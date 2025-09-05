@@ -4,6 +4,126 @@
 
 /* Wattar Design System - Bright & Creative Arabic Landing Page */
 
+/* --------------------------------------------
+   Custom Arabic Fonts (Client-provided)
+   Expect font files in: src/assets/fonts/
+   File names used below are conventional; replace with exact names if different.
+   -------------------------------------------- */
+
+/* The Year of Handicrafts */
+@font-face {
+  font-family: "The Year of Handicrafts";
+  src: url("./assets/fonts/TheYearOfHandicrafts-Regular.woff2") format("woff2"),
+       url("./assets/fonts/TheYearOfHandicrafts-Regular.woff") format("woff"),
+       url("./assets/fonts/TheYearOfHandicrafts-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "The Year of Handicrafts";
+  src: url("./assets/fonts/TheYearOfHandicrafts-Med.woff2") format("woff2"),
+       url("./assets/fonts/TheYearOfHandicrafts-Med.woff") format("woff"),
+       url("./assets/fonts/TheYearOfHandicrafts-Med.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "The Year of Handicrafts";
+  src: url("./assets/fonts/TheYearOfHandicrafts-SemBd.woff2") format("woff2"),
+       url("./assets/fonts/TheYearOfHandicrafts-SemBd.woff") format("woff"),
+       url("./assets/fonts/TheYearOfHandicrafts-SemBd.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DIN Next Arabic */
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-UltraLight.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-UltraLight.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-UltraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Light.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Light.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Regular.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Regular.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Medium.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Medium.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Bold.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Bold.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Heavy.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Heavy.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Heavy.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next Arabic";
+  src: url("./assets/fonts/DINNextArabic-Black.woff2") format("woff2"),
+       url("./assets/fonts/DINNextArabic-Black.woff") format("woff"),
+       url("./assets/fonts/DINNextArabic-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ruq'ah Display Font */
+@font-face {
+  font-family: "Ruqah";
+  src: url("./assets/fonts/Ruqah-Regular.woff2") format("woff2"),
+       url("./assets/fonts/Ruqah-Regular.woff") format("woff"),
+       url("./assets/fonts/Ruqah-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ruqah";
+  src: url("./assets/fonts/Ruqah-Bold.woff2") format("woff2"),
+       url("./assets/fonts/Ruqah-Bold.woff") format("woff"),
+       url("./assets/fonts/Ruqah-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Brand Colors - Bright & Vibrant */
@@ -60,7 +180,7 @@
 
   .dark {
     /* Dark Mode - Custom Gradient Background */
-    --background: 220 15% 8%;
+    --background: 193 100% 7%; /* #001e26 */
     /* Foreground text: near-white neutral for maximum readability */
     --foreground: 210 40% 96%;
     /* Keep heading color same as light mode */
@@ -131,10 +251,9 @@
     color: hsl(var(--heading-foreground));
   }
   
-  /* Dark mode custom background gradient */
-  body.dark {
-    background: linear-gradient(135deg, #032226, #002227, #061f23, #032125, #091f21);
-    background-attachment: fixed;
+  /* Dark mode body background when .dark is applied on html */
+  .dark body {
+    background: hsl(var(--background));
   }
 
   html {

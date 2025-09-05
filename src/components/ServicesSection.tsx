@@ -95,83 +95,26 @@ const ServicesSection = () => {
       id="services"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative py-16 md:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden scroll-mt-24 md:scroll-mt-28"
+      className="relative py-4 md:py-6 bg-background scroll-mt-24 md:scroll-mt-28"
     >
-      {/* Dynamic Background Spotlight */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{
-          background: `radial-gradient(1000px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,235,59,0.1), transparent 70%)`,
-        }}
-      />
       
-      {/* Background Logo Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-3">
-        <img 
-          src={logoImage} 
-          alt="Wattar Logo" 
-          className="w-[600px] h-[600px] object-contain animate-pulse-slow transform rotate-6" 
-        />
-      </div>
 
-      {/* Spectacular Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Geometric Shapes */}
-        <div className={`absolute top-20 left-[8%] w-32 h-32 transition-all duration-1000 ${isVisible ? 'animate-float opacity-20' : 'opacity-0'}`}>
-          <div className="w-full h-full bg-gradient-to-br from-[#FFEB3B]/30 to-[#FF9800]/30 rounded-full blur-xl animate-pulse-slow" />
-        </div>
-        <div className={`absolute bottom-32 right-[12%] w-24 h-24 transition-all duration-1000 ${isVisible ? 'animate-float opacity-25' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-[#008080]/30 to-[#20B2AA]/30 transform rotate-45 blur-lg animate-morph" />
-        </div>
-        <div className={`absolute top-1/3 right-[6%] w-20 h-20 transition-all duration-1000 ${isVisible ? 'animate-float opacity-15' : 'opacity-0'}`} style={{ animationDelay: '2s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-[#FF6B6B]/25 to-[#FF8E53]/25 rounded-full blur-md animate-breathe" />
-        </div>
-
-        {/* Magical Particles */}
-        {Array.from({ length: 15 }).map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 bg-gradient-to-r from-[#FFEB3B] to-[#008080] rounded-full transition-all duration-1000 ${isVisible ? 'animate-float opacity-40' : 'opacity-0'}`}
-            style={{
-              left: `${15 + (i * 6)}%`,
-              top: `${25 + (i * 4)}%`,
-              animationDelay: `${i * 0.4}s`,
-              animationDuration: `${5 + (i % 4)}s`
-            }}
-          />
-        ))}
-
-        {/* Dynamic Light Rays */}
-        <div className={`absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#FFEB3B]/20 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-30' : 'opacity-0'}`} />
-        <div className={`absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-[#008080]/20 to-transparent transition-all duration-1000 ${isVisible ? 'animate-pulse-slow opacity-25' : 'opacity-0'}`} style={{ animationDelay: '1.5s' }} />
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Spectacular Section Header */}
-        <div className={`text-center mb-10 md:mb-20 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+        {/* Section Header */}
+        <div className={`text-center mb-6 md:mb-10 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 relative text-foreground">
+            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 relative text-foreground font-din_ar font-bold">
               <span className="text-foreground">
-                خدماتنا المذهلة
+                خدماتنا
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#FFEB3B]/20 via-[#008080]/20 to-[#FF6B6B]/20 rounded-2xl blur-2xl opacity-40 animate-pulse-slow" />
+              <div className="absolute -inset-2 rounded-2xl opacity-0" />
             </h2>
             
-            {/* Floating Icons Around Title */}
-            <div className={`absolute -top-8 -right-8 transition-all duration-1000 ${isVisible ? 'animate-float opacity-60' : 'opacity-0'}`}>
-              <Crown className="w-8 h-8 text-[#FFEB3B] animate-pulse-slow" />
-            </div>
-            <div className={`absolute -bottom-4 -left-6 transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
-              <Sparkles className="w-6 h-6 text-[#008080] animate-pulse-slow" />
-            </div>
           </div>
-          
-          <p className="text-lg md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            نحن نبتكر حلول تصميم وتطوير متقدمة، تُمكّن العلامات التجارية من النمو والتأثير في مستقبل التحول الرقمي بالمملكة
-          </p>
         </div>
 
-        {/* Revolutionary Services Grid */}
+        {/* Services Grid */}
         <div className="grid lg:grid-cols-3 gap-6 md:gap-12 mb-12 md:mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -181,37 +124,14 @@ const ServicesSection = () => {
                 className={`group relative transition-all duration-700 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}
                 style={{ animationDelay: `${index * 0.3}s` }}
               >
-                {/* Main Service Card */}
-                <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-[2rem] p-8 border border-white/20 shadow-2xl transform transition-all duration-500 ${service.shadowColor}`}>
-                  
-                  {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 rounded-[2rem] transition-all duration-500`} />
-                  
-                  {/* Floating Particles for Each Card */}
-                  {service.particles.map((particle, pIndex) => {
-                    const ParticleIcon = particle.icon;
-                    return (
-                      <div
-                        key={pIndex}
-                        className={`absolute ${particle.position} opacity-0 transition-all duration-500 animate-float`}
-                        style={{ animationDelay: particle.delay }}
-                      >
-                        <ParticleIcon className="w-4 h-4 text-current" />
-                      </div>
-                    );
-                  })}
+                {/* Main Service Card - no shadow, teal border, rounded corners */}
+                <div className="relative bg-card rounded-[2rem] p-8 border-2 border-[#0e7c8d] transform transition-all duration-300">
 
                   {/* Spectacular Icon Container */}
                   <div className="relative mb-8">
-                    <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${service.gradient} shadow-2xl transform transition-all duration-500`}>
-                      <Icon className="w-12 h-12 text-white drop-shadow-lg" />
-                      
-                      {/* Magical Glow Ring */}
-                      
+                    <div className="inline-flex p-4 rounded-3xl bg-card">
+                      <Icon className="w-12 h-12 text-[#0e7c8d]" />
                     </div>
-                    
-                    {/* Floating Icon Shadows */}
-                    <div className={`absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-xl transition-all duration-500`} />
                   </div>
 
                   {/* Enhanced Content */}
@@ -237,16 +157,7 @@ const ServicesSection = () => {
                     </div>
                   </div>
 
-                  {/* Magical Corner Decorations */}
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-[#FFEB3B]/30 rounded-full animate-pulse-slow" />
-                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-[#008080]/40 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-                  
-                  {/* Hover Ripple Effect */}
-                  
                 </div>
-
-                {/* Card Shadow Enhancement */}
-                <div className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${service.gradient} opacity-0 blur-2xl transition-all duration-500 -z-10`} />
               </div>
             );
           })}

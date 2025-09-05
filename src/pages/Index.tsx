@@ -4,6 +4,7 @@ import Loader from "@/components/Loader";
 import HeroSection from "@/components/HeroSection";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
 import ServicesSection from "@/components/ServicesSection";
+import NewSection from "@/components/NewSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import PartnersSection from "@/components/PartnersSection";
 import ContactSection from "@/components/ContactSection";
@@ -26,7 +27,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {isLoading && <Loader onLoadComplete={handleLoadComplete} />}
       
       <Navigation />
@@ -38,6 +39,9 @@ const Index = () => {
       </section>
       <section id="services">
         <ServicesSection />
+      </section>
+      <section id="vision">
+        <NewSection />
       </section>
       <section id="portfolio">
         <PortfolioSection />

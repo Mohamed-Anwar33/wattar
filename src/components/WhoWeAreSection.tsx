@@ -53,65 +53,11 @@ const WhoWeAreSection = () => {
   return (
     <section 
       ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      className="relative py-16 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+      className="relative py-8 bg-background"
+      dir="rtl">
       
-      {/* Dynamic Background Spotlight */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0,128,128,0.08), transparent 70%)`,
-        }}
-      />
       
-      {/* Background Logo Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <img 
-          src={logoImage} 
-          alt="Wattar Logo" 
-          className="w-96 h-96 object-contain animate-pulse-slow transform rotate-12" 
-        />
-      </div>
       
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Abstract Geometric Shapes */}
-        <svg className="absolute top-10 left-10 w-32 h-32 text-[#008080]/10 animate-float" viewBox="0 0 100 100">
-          <polygon points="50,0 100,38 82,100 18,100 0,38" fill="currentColor" className="animate-pulse-slow" />
-        </svg>
-        <svg className="absolute bottom-20 right-20 w-24 h-24 text-[#FFEB3B]/15 animate-float" viewBox="0 0 100 100" style={{ animationDelay: '1s' }}>
-          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="8" className="animate-pulse-slow" />
-          <circle cx="50" cy="50" r="20" fill="currentColor" className="animate-pulse-slow" />
-        </svg>
-        
-        {/* Floating Icons */}
-        <div className={`absolute top-16 left-[8%] transition-all duration-1000 ${isVisible ? 'animate-float opacity-60' : 'opacity-0 translate-y-10'}`} style={{ animationDelay: '0.3s' }}>
-          <Sparkles className="w-6 h-6 text-[#FFEB3B] animate-pulse-slow" />
-        </div>
-        <div className={`absolute top-24 right-[12%] transition-all duration-1000 ${isVisible ? 'animate-float opacity-50' : 'opacity-0 translate-y-10'}`} style={{ animationDelay: '0.7s' }}>
-          <Heart className="w-5 h-5 text-[#008080] animate-pulse-slow" />
-        </div>
-        <div className={`absolute bottom-32 left-[15%] transition-all duration-1000 ${isVisible ? 'animate-float opacity-40' : 'opacity-0 translate-y-10'}`} style={{ animationDelay: '1.1s' }}>
-          <Star className="w-4 h-4 text-[#FFEB3B] animate-pulse-slow" />
-        </div>
-        <div className={`absolute top-1/3 right-[6%] transition-all duration-1000 ${isVisible ? 'animate-float opacity-55' : 'opacity-0 translate-y-10'}`} style={{ animationDelay: '1.5s' }}>
-          <Rocket className="w-5 h-5 text-[#008080] animate-pulse-slow" />
-        </div>
-        
-        {/* Brand Icons Scattered */}
-        <div className="absolute top-16 right-1/4 opacity-10 animate-float" style={{ animationDelay: '0.5s' }}>
-          <Palette className="w-12 h-12 text-[#008080]" />
-        </div>
-        <div className="absolute bottom-32 left-1/4 opacity-10 animate-float" style={{ animationDelay: '1.2s' }}>
-          <Code className="w-10 h-10 text-[#FFEB3B]" />
-        </div>
-        <div className="absolute top-1/2 left-8 opacity-10 animate-float" style={{ animationDelay: '2.1s' }}>
-          <Megaphone className="w-8 h-8 text-[#008080]" />
-        </div>
-        <div className="absolute bottom-1/3 right-12 opacity-10 animate-float" style={{ animationDelay: '0.8s' }}>
-          <Smartphone className="w-9 h-9 text-[#FFEB3B]" />
-        </div>
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto">

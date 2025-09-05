@@ -47,7 +47,7 @@ const Navigation = () => {
           >
             <span
               aria-hidden
-              className="block h-10 w-36 md:h-12 md:w-40"
+              className="block h-12 w-44 md:h-14 md:w-48"
               style={{
                 backgroundColor: "#008080",
                 WebkitMask: `url(${logo}) center / contain no-repeat`,
@@ -57,12 +57,12 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-8 space-x-reverse">
+          <ul className="hidden md:flex space-x-2 space-x-reverse">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="text-foreground font-medium px-3 py-2 rounded-lg transition-all hover:text-primary hover:bg-muted/60 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 >
                   {item.label}
                 </button>
@@ -106,7 +106,7 @@ const Navigation = () => {
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-right text-foreground hover:text-primary transition-colors font-medium py-2"
+                    className="block w-full text-right text-foreground font-medium py-2 px-3 rounded-lg transition-all hover:text-primary hover:bg-muted/60 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-primary/50"
                   >
                     {item.label}
                   </button>

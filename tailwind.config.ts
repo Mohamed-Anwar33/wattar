@@ -64,7 +64,13 @@ export default {
 				}
 			},
 			fontFamily: {
-				'arabic': ['Cairo', 'Tajawal', 'system-ui', 'sans-serif'],
+				// Default Arabic UI/body font (client requirement): DIN Next Arabic
+				'arabic': ['DIN Next Arabic', 'Cairo', 'Tajawal', 'system-ui', 'sans-serif'],
+				// Explicit aliases
+				'din_ar': ['DIN Next Arabic', 'Cairo', 'Tajawal', 'system-ui', 'sans-serif'],
+				'handicrafts': ['The Year of Handicrafts', 'DIN Next Arabic', 'Cairo', 'Tajawal', 'system-ui', 'sans-serif'],
+				'ruqah': ['Ruqah', 'DIN Next Arabic', 'Cairo', 'Tajawal', 'system-ui', 'sans-serif'],
+				// Existing fallbacks
 				'cairo': ['Cairo', 'system-ui', 'sans-serif'],
 				'tajawal': ['Tajawal', 'system-ui', 'sans-serif']
 			},

@@ -156,7 +156,7 @@ const AboutSection = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
             <div className="relative">
               {/* Glowing Title */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 relative text-foreground">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 relative text-foreground font-din_ar font-bold">
                 <span className="text-foreground">
                   نبذة عنا
                 </span>
