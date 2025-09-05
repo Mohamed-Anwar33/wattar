@@ -12,8 +12,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Left Side - Content */}
-          <div className="order-1 lg:order-1 text-right" dir="rtl">
+          {/* Left Side - Content (below image on mobile) */}
+          <div className="order-2 lg:order-1 text-right" dir="rtl">
             <div className="space-y-6">
               {/* Main Heading (as image) */}
               <div className="w-full">
@@ -55,8 +55,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side - WATTAR Vector Image */}
-          <div className="order-2 lg:order-2 flex justify-center lg:justify-end">
+          {/* Right Side - WATTAR Vector Image (on top on mobile) */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
               <img 
                 src={wattarVector} 
