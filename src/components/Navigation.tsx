@@ -38,7 +38,7 @@ const Navigation = () => {
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 relative">
           {/* Logo */}
           <button
             className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform"
@@ -57,7 +57,7 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-2 space-x-reverse">
+          <ul className="hidden lg:flex space-x-2 space-x-reverse">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
@@ -71,10 +71,12 @@ const Navigation = () => {
           </ul>
 
           {/* Theme Toggle & CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
+          <div className="hidden md:flex items-center gap-4 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:z-10 lg:static lg:translate-x-0 lg:translate-y-0">
+            <div className="hidden lg:block">
+              <ThemeToggle />
+            </div>
             <button 
-              className="btn-primary text-sm px-6 py-2"
+              className="btn-primary text-sm px-6 py-2 md:text-lg md:px-8 md:py-3 lg:text-base lg:px-7 lg:py-3"
               onClick={() => {
                 // Open WhatsApp with default message
                 const number = '966500000000'; // Replace with your actual WhatsApp number
@@ -88,7 +90,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Theme Toggle + Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle />
             <button
               className="p-2 rounded-lg hover:bg-muted transition-colors"
@@ -106,7 +108,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-card/95 backdrop-blur-md rounded-2xl mt-4 p-6 shadow-card border border-border/50 animate-slide-up">
+          <div className="lg:hidden bg-card/95 backdrop-blur-md rounded-2xl mt-4 p-6 shadow-card border border-border/50 animate-slide-up">
             <ul className="space-y-4">
               {navItems.map((item) => (
                 <li key={item.id}>
@@ -119,10 +121,9 @@ const Navigation = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex items-center justify-between mt-6 gap-4">
-              <ThemeToggle />
+            <div className="flex items-center justify-end mt-6 gap-4">
               <button 
-                className="btn-primary flex-1"
+                className="btn-primary flex-1 md:text-lg md:py-3"
                 onClick={() => {
                   // Open WhatsApp with default message
                   const number = '966500000000'; // Replace with your actual WhatsApp number

@@ -102,7 +102,8 @@ const ServicesSection = () => {
       <div className="container mx-auto px-3 sm:px-6 relative z-10">
 
         {/* Mobile Services Image */}
-        <div className="sm:hidden mb-8 overflow-hidden">
+        {/* Mobile & Tablet Services Image */}
+        <div className="lg:hidden mb-8 overflow-hidden">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
             {/* Light mode image */}
             <img 
@@ -119,8 +120,8 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Desktop Services Title */}
-        <div className={`hidden sm:block text-center mb-4 sm:mb-6 md:mb-10 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+        {/* Desktop Services Title (Desktop only) */}
+        <div className={`hidden lg:block text-center mb-4 sm:mb-6 md:mb-10 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
             <h2 className="text-2xl sm:text-4xl md:text-7xl font-extrabold mb-3 sm:mb-6 md:mb-8 relative text-foreground font-din_ar font-bold">
               <span className="text-foreground">
@@ -131,8 +132,8 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Desktop Services Cards */}
-        <div className="hidden sm:grid grid-cols-3 gap-6 md:gap-12 mb-6 sm:mb-12 md:mb-20">
+        {/* Desktop Services Cards (Desktop only) */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 mb-6 sm:mb-12 md:mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -142,28 +143,28 @@ const ServicesSection = () => {
                 style={{ animationDelay: `${index * 0.3}s` }}
               >
                 {/* Main Service Card - no shadow, teal border, rounded corners */}
-                <div className="relative bg-card rounded-lg sm:rounded-2xl border border-foreground/20 sm:border-2 p-6 md:p-8 h-64 md:h-80 flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-[#0e7c8d]/20 group cursor-pointer">
+                <div className="relative bg-card rounded-lg sm:rounded-2xl border border-foreground/20 sm:border-2 p-5 md:p-6 lg:p-8 h-64 md:h-72 lg:h-80 flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-[#0e7c8d]/20 group cursor-pointer">
                   {/* Spectacular Icon Container */}
-                  <div className="relative mb-4 md:mb-6 flex justify-center">
-                    <div className="inline-flex p-2 md:p-4 rounded-lg sm:rounded-3xl bg-card">
-                      <Icon className="w-8 sm:h-8 md:w-12 md:h-12 text-[#0e7c8d]" />
+                  <div className="relative mb-4 md:mb-5 lg:mb-6 flex justify-center">
+                    <div className="inline-flex p-2 md:p-3 lg:p-4 rounded-lg sm:rounded-3xl bg-card">
+                      <Icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-[#0e7c8d]" />
                     </div>
                   </div>
 
                   {/* Enhanced Content */}
                   <div className="relative z-10 flex-1 flex flex-col">
-                    <h3 className={`text-lg md:text-2xl font-bold mb-3 md:mb-4 transition-all duration-300 text-foreground leading-tight text-center`}>
+                    <h3 className={`text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 transition-all duration-300 text-foreground leading-tight text-center`}>
                       {service.title}
                     </h3>
                     
                     <div className="flex-1 flex flex-col justify-between">
-                      <p className={`text-muted-foreground leading-relaxed text-sm md:text-lg transition-all duration-300 line-clamp-3 text-center`}>
+                      <p className={`text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg transition-all duration-300 line-clamp-3 text-center`}>
                         {service.description}
                       </p>
 
                       <div className="mt-auto">
                         {/* Interactive Progress Bar */}
-                        <div className="mt-4 md:mt-6 relative">
+                        <div className="mt-4 md:mt-5 lg:mt-6 relative">
                           <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                             <div 
                               className={`h-full bg-gradient-to-r ${service.gradient} transform transition-all duration-1000 ${activeCard === index ? 'translate-x-0' : '-translate-x-full'}`}
