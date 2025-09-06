@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { Palette, BookOpen, Monitor, Sparkles, Star, Zap, Crown, Rocket, Heart, Trophy, Target, Wand2 } from "lucide-react";
 import logoImage from '../assets/logo.png';
 import servicesImage from '../assets/الخدمات على شاشة الموبايل.png';
+import servicesImageDark from '../assets/الخدمات على شاشة الموبايل فى الوضع الليلى.png';
 
 const services = [
   {
@@ -101,16 +102,34 @@ const ServicesSection = () => {
       <div className="container mx-auto px-3 sm:px-6 relative z-10">
 
         {/* Mobile Services Image */}
-        <div className="sm:hidden mb-6">
+        <div className="sm:hidden mb-8 overflow-hidden">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
+            {/* Light mode image */}
             <img 
               src={servicesImage} 
               alt="خدماتنا على شاشة الموبايل" 
-              className="w-full h-auto object-contain rounded-lg"
+              className="w-full h-auto object-contain rounded-lg block dark:hidden"
+            />
+            {/* Dark mode image */}
+            <img 
+              src={servicesImageDark} 
+              alt="خدماتنا على شاشة الموبايل فى الوضع الليلى" 
+              className="w-full h-auto object-contain rounded-lg hidden dark:block"
             />
           </div>
         </div>
 
+        {/* Desktop Services Title */}
+        <div className={`hidden sm:block text-center mb-4 sm:mb-6 md:mb-10 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+          <div className="relative inline-block">
+            <h2 className="text-2xl sm:text-4xl md:text-7xl font-extrabold mb-3 sm:mb-6 md:mb-8 relative text-foreground font-din_ar font-bold">
+              <span className="text-foreground">
+                خدماتنا
+              </span>
+              <div className="absolute -inset-2 rounded-2xl opacity-0" />
+            </h2>
+          </div>
+        </div>
 
         {/* Desktop Services Cards */}
         <div className="hidden sm:grid grid-cols-3 gap-6 md:gap-12 mb-6 sm:mb-12 md:mb-20">

@@ -67,12 +67,10 @@ const WhoWeAreSection = () => {
             <div className="relative inline-block mb-6">
               <button
                 onClick={() => {
-                  // Build WhatsApp URL using env number if available
-                  const number = (import.meta as any).env?.VITE_WHATSAPP_NUMBER || '';
+                  // Open WhatsApp with default message
+                  const number = '966500000000'; // Replace with your actual WhatsApp number
                   const defaultMsg = 'مرحبًا، أود الاستفسار عن خدماتكم';
-                  const url = number
-                    ? `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`
-                    : 'https://wa.me/'; // Fallback until number is provided
+                  const url = `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`;
                   window.open(url, '_blank', 'noopener,noreferrer');
                 }}
                 onMouseEnter={() => setIsHovered(true)}

@@ -13,7 +13,7 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
   phoneNumber,
   prefill = "مرحبا، أحتاج التحدث مع فريق وتار 👋",
 }) => {
-  const number = phoneNumber || (import.meta.env.VITE_WHATSAPP_NUMBER as string) || "966500000000";
+  const number = phoneNumber || "966500000000"; // Replace with your actual WhatsApp number
   const encoded = encodeURIComponent(prefill);
   const href = `https://wa.me/${number}?text=${encoded}`;
 

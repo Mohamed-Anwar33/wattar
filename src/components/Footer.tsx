@@ -24,7 +24,7 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 py-16 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
@@ -63,34 +63,45 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-foreground">روابط سريعة</h4>
-            <ul className="space-y-3">
-              <li><a href="#home" className="text-muted-foreground hover:text-primary transition-colors">الرئيسية</a></li>
-              <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">نبذة عنا</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors">الخدمات</a></li>
-              <li><a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">معرض الأعمال</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">تواصل معنا</a></li>
+            <h4 className="font-semibold text-sm md:text-lg mb-2 md:mb-4 text-foreground">روابط سريعة</h4>
+            {/* Mobile: Horizontal layout, Desktop: Vertical layout */}
+            <div className="md:hidden">
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <a href="#home" className="text-xs text-muted-foreground hover:text-primary transition-colors">الرئيسية</a>
+                <a href="#about" className="text-xs text-muted-foreground hover:text-primary transition-colors">نبذة عنا</a>
+                <a href="#services" className="text-xs text-muted-foreground hover:text-primary transition-colors">الخدمات</a>
+                <a href="#portfolio" className="text-xs text-muted-foreground hover:text-primary transition-colors">معرض الأعمال</a>
+                <a href="#contact" className="text-xs text-muted-foreground hover:text-primary transition-colors">تواصل معنا</a>
+              </div>
+            </div>
+            {/* Desktop: Vertical layout */}
+            <ul className="hidden md:block space-y-3">
+              <li><a href="#home" className="text-base text-muted-foreground hover:text-primary transition-colors">الرئيسية</a></li>
+              <li><a href="#about" className="text-base text-muted-foreground hover:text-primary transition-colors">نبذة عنا</a></li>
+              <li><a href="#services" className="text-base text-muted-foreground hover:text-primary transition-colors">الخدمات</a></li>
+              <li><a href="#portfolio" className="text-base text-muted-foreground hover:text-primary transition-colors">معرض الأعمال</a></li>
+              <li><a href="#contact" className="text-base text-muted-foreground hover:text-primary transition-colors">تواصل معنا</a></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-foreground">معلومات التواصل</h4>
-            <div className="space-y-3">
+            <h4 className="font-semibold text-sm md:text-lg mb-2 md:mb-4 text-foreground">معلومات التواصل</h4>
+            <div className="space-y-1 md:space-y-3">
               <a
                 href="mailto:WATTAR_SALES@outlook.sa"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                className="flex items-center gap-2 md:gap-3 text-muted-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
               >
-                <Mail className="w-4 h-4 text-primary" />
-                <span>WATTAR_SALES@outlook.sa</span>
+                <Mail className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                <span className="text-xs md:text-base break-all">WATTAR_SALES@outlook.sa</span>
               </a>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="w-4 h-4 text-primary" />
-                <span>+966 50 123 4567</span>
+              <div className="flex items-center gap-2 md:gap-3 text-muted-foreground">
+                <Phone className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                <span className="text-xs md:text-base">+966 50 123 4567</span>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>الرياض، المملكة العربية السعودية</span>
+              <div className="flex items-center gap-2 md:gap-3 text-muted-foreground">
+                <MapPin className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                <span className="text-xs md:text-base">الرياض، المملكة العربية السعودية</span>
               </div>
             </div>
           </div>

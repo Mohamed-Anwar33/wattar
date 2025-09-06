@@ -21,9 +21,9 @@ const HeroSection = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col gap-2 sm:gap-4 justify-end">
+              <div className="flex flex-row gap-2 sm:gap-4 justify-end">
                 <Button 
-                  className="bg-[#ffeb19] hover:bg-[#ffd700] text-black font-semibold px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base lg:text-lg"
+                  className="bg-[#ffeb19] hover:bg-[#ffd700] text-black font-semibold px-2 py-2 sm:px-4 sm:py-3 lg:px-8 lg:py-3 rounded-full text-xs sm:text-sm lg:text-lg flex-1"
                   onClick={() => {
                     const element = document.getElementById('portfolio');
                     if (element) {
@@ -35,12 +35,13 @@ const HeroSection = () => {
                 </Button>
                 <Button 
                   variant="outline"
-                  className="border-[#0e7c8d] text-[#0e7c8d] hover:bg-[#0e7c8d] hover:text-white font-semibold px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base lg:text-lg"
+                  className="border-[#0e7c8d] text-[#0e7c8d] hover:bg-[#0e7c8d] hover:text-white font-semibold px-2 py-2 sm:px-4 sm:py-3 lg:px-8 lg:py-3 rounded-full text-xs sm:text-sm lg:text-lg flex-1"
                   onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    // Open WhatsApp with default message
+                    const number = '966500000000'; // Replace with your actual WhatsApp number
+                    const defaultMsg = 'مرحبًا، أود الاستفسار عن خدماتكم';
+                    const url = `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`;
+                    window.open(url, '_blank', 'noopener,noreferrer');
                   }}
                 >
                   تواصل معنا

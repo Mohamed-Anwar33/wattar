@@ -75,7 +75,13 @@ const Navigation = () => {
             <ThemeToggle />
             <button 
               className="btn-primary text-sm px-6 py-2"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => {
+                // Open WhatsApp with default message
+                const number = '966500000000'; // Replace with your actual WhatsApp number
+                const defaultMsg = 'مرحبًا، أود الاستفسار عن خدماتكم';
+                const url = `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`;
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }}
             >
               تواصل معنا
             </button>
@@ -117,7 +123,13 @@ const Navigation = () => {
               <ThemeToggle />
               <button 
                 className="btn-primary flex-1"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => {
+                  // Open WhatsApp with default message
+                  const number = '966500000000'; // Replace with your actual WhatsApp number
+                  const defaultMsg = 'مرحبًا، أود الاستفسار عن خدماتكم';
+                  const url = `https://wa.me/${number}?text=${encodeURIComponent(defaultMsg)}`;
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }}
               >
                 تواصل معنا
               </button>
