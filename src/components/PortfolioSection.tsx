@@ -70,67 +70,67 @@ const PortfolioSection = () => {
       className="relative py-8 md:py-12 scroll-mt-24 md:scroll-mt-28 bg-background"
     >
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-foreground font-din_ar font-bold">
+        <div className="text-center mb-4 sm:mb-8">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-3 sm:mb-6 text-foreground font-din_ar font-bold">
             معرض أعمالنا
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 font-din_ar">
+          <p className="text-sm sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-8 font-din_ar">
             مجموعة مختارة من أفضل أعمالنا التي تحكي قصص نجاح استثنائية
           </p>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-4">
           {filteredItems.map((item, index) => {
             const Icon = item.icon;
             return (
               <div key={item.id} className="relative">
                 {/* Main Portfolio Card */}
-                <div className="bg-card rounded-2xl overflow-hidden border shadow-lg">
+                <div className="bg-card rounded-lg sm:rounded-2xl overflow-hidden border shadow-lg">
                   
                   {/* Image Container */}
                   <div className="relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-20 sm:h-32 lg:h-48 object-cover"
                       loading="lazy"
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className="p-1.5 rounded-lg bg-primary">
-                          <Icon className="w-3 h-3 text-primary-foreground" />
+                  <div className="p-1 sm:p-2 lg:p-4">
+                    <div className="flex items-center justify-between mb-1 sm:mb-2">
+                      <div className="flex items-center gap-1 sm:gap-2">
+                        <div className="p-0.5 sm:p-1 lg:p-1.5 rounded bg-primary sm:rounded-lg">
+                          <Icon className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 text-primary-foreground" />
                         </div>
-                        <span className="text-xs font-medium px-2 py-1 rounded-full bg-secondary text-secondary-foreground">
+                        <span className="text-[8px] sm:text-[10px] lg:text-xs font-medium px-1 py-0.5 sm:px-2 sm:py-1 rounded-full bg-secondary text-secondary-foreground hidden sm:inline">
                           {item.category}
                         </span>
                       </div>
-                      <span className="text-xs text-muted-foreground font-medium">
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs text-muted-foreground font-medium">
                         {item.year}
                       </span>
                     </div>
                     
-                    <h3 className="text-base font-bold mb-2 text-foreground">
+                    <h3 className="text-[10px] sm:text-sm lg:text-base font-bold mb-1 sm:mb-2 text-foreground leading-tight">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground leading-relaxed mb-3 text-sm">
-                      {item.description.slice(0, 80)}...
+                    <p className="text-muted-foreground leading-relaxed mb-1 sm:mb-3 text-[8px] sm:text-xs lg:text-sm line-clamp-2 sm:line-clamp-3">
+                      {item.description.slice(0, 60)}...
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-0.5 sm:gap-1">
                       {item.tags.slice(0, 2).map((tag, tagIndex) => (
                         <span 
                           key={tagIndex}
-                          className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-md font-medium"
+                          className="text-[7px] sm:text-[9px] lg:text-xs bg-muted text-muted-foreground px-1 py-0.5 sm:px-2 sm:py-1 rounded-sm sm:rounded-md font-medium"
                         >
                           {tag}
                         </span>

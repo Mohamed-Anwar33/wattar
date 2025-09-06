@@ -4,32 +4,26 @@ import heroTextDay from "@/assets/نص الهيرو سيكشن الوضع الن
 
 const HeroSection = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-20 md:pt-24 scroll-mt-20 md:scroll-mt-24 bg-background"
-    >
-      {/* Main Content Container */}
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="relative pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 scroll-mt-32 md:scroll-mt-36 bg-background overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-6 relative z-10">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
           
-          {/* Left Side - Content (below image on mobile) */}
-          <div className="order-2 lg:order-1 text-right" dir="rtl">
-            <div className="space-y-6">
+          {/* Left Side - Content */}
+          <div className="text-right" dir="rtl">
+            <div className="space-y-3 sm:space-y-6">
               {/* Main Heading (as image) */}
               <div className="w-full">
                 <img
                   src={heroTextDay}
                   alt=""
-                  aria-hidden="true"
-                  draggable={false}
-                  className="block ml-auto w-full max-w-[680px] h-auto object-contain select-none"
+                  className="block ml-auto w-full max-w-[250px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[500px] h-auto object-contain select-none"
                 />
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-end">
+              <div className="flex flex-col gap-2 sm:gap-4 justify-end">
                 <Button 
-                  className="bg-[#ffeb19] hover:bg-[#ffd700] text-black font-semibold px-8 py-3 rounded-full text-lg"
+                  className="bg-[#ffeb19] hover:bg-[#ffd700] text-black font-semibold px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base lg:text-lg"
                   onClick={() => {
                     const element = document.getElementById('portfolio');
                     if (element) {
@@ -41,7 +35,7 @@ const HeroSection = () => {
                 </Button>
                 <Button 
                   variant="outline"
-                  className="border-2 border-[#0e7c8d] text-[#0e7c8d] hover:bg-[#0e7c8d] hover:text-white font-semibold px-8 py-3 rounded-full text-lg"
+                  className="border-[#0e7c8d] text-[#0e7c8d] hover:bg-[#0e7c8d] hover:text-white font-semibold px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base lg:text-lg"
                   onClick={() => {
                     const element = document.getElementById('contact');
                     if (element) {
@@ -55,12 +49,12 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side - WATTAR Vector Image (on top on mobile) */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
+          {/* Right Side - Illustration */}
+          <div className="flex justify-center items-center">
+            <div className="w-full max-w-[250px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[680px]">
               <img 
                 src={wattarVector} 
-                alt="WATTAR Vector" 
+                alt="WATTAR Vector Illustration" 
                 className="w-full h-auto object-contain"
               />
             </div>

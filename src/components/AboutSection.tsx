@@ -150,20 +150,20 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-3 sm:px-6 relative z-10">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
           {/* Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}>
             <div className="relative">
               {/* Glowing Title */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 relative text-foreground font-din_ar font-bold">
+              <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-6xl font-extrabold mb-3 sm:mb-6 lg:mb-8 relative text-foreground font-din_ar font-bold">
                 <span className="text-foreground">
                   نبذة عنا
                 </span>
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#008080]/20 to-[#FFEB3B]/20 rounded-lg blur-lg opacity-30 animate-pulse-slow" />
               </h2>
               
-              <div className="space-y-6 text-lg leading-relaxed">
+              <div className="space-y-2 sm:space-y-4 lg:space-y-6 text-xs sm:text-sm lg:text-lg leading-relaxed">
                 <p className="text-muted-foreground relative">
                   🚀 في <span className="text-foreground font-bold">وتار</span>، نحن لا نصنع مواقع عادية... 
                   <span className="text-foreground font-bold">نحن نخلق تجارب رقمية تخطف الأنفاس!</span> 
@@ -181,48 +181,48 @@ const AboutSection = () => {
                 </p>
                 
                 {/* Enhanced Interactive Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                <div className="grid grid-cols-1 gap-2 sm:gap-4 mt-4 sm:mt-8">
                   <div 
-                    className={`group flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group flex items-center gap-1 sm:gap-3 p-2 sm:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '0.8s' }}
                     onMouseEnter={() => setActiveCard(0)}
                     onMouseLeave={() => setActiveCard(null)}
                   >
                     <div className="relative">
-                      <Trophy className={`w-5 h-5 text-[#008080] transition-all duration-300 ${activeCard === 0 ? 'scale-125 rotate-12' : ''}`} />
+                      <Trophy className={`w-3 h-3 sm:w-5 sm:h-5 text-[#008080] transition-all duration-300 ${activeCard === 0 ? 'scale-125 rotate-12' : ''}`} />
                       {activeCard === 0 && (
                         <div className="absolute -inset-2 bg-[#008080]/20 rounded-full animate-ping" />
                       )}
                     </div>
-                    <span className="font-bold text-foreground transition-all duration-300 group-hover:text-lg">+100 مشروع مكتمل</span>
+                    <span className="font-bold text-foreground transition-all duration-300 text-xs sm:text-base group-hover:text-lg">+100 مشروع مكتمل</span>
                   </div>
                   <div 
-                    className={`group flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-[#FFEB3B]/10 to-[#FFEB3B]/5 border border-[#FFEB3B]/30 hover:border-[#FFEB3B]/50 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group flex items-center gap-1 sm:gap-3 p-2 sm:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#FFEB3B]/10 to-[#FFEB3B]/5 border border-[#FFEB3B]/30 hover:border-[#FFEB3B]/50 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '1s' }}
                     onMouseEnter={() => setActiveCard(1)}
                     onMouseLeave={() => setActiveCard(null)}
                   >
                     <div className="relative">
-                      <Users className={`w-5 h-5 text-[#FFEB3B] transition-all duration-300 ${activeCard === 1 ? 'scale-125 rotate-12' : ''}`} />
+                      <Users className={`w-3 h-3 sm:w-5 sm:h-5 text-[#FFEB3B] transition-all duration-300 ${activeCard === 1 ? 'scale-125 rotate-12' : ''}`} />
                       {activeCard === 1 && (
                         <div className="absolute -inset-2 bg-[#FFEB3B]/20 rounded-full animate-ping" />
                       )}
                     </div>
-                    <span className="font-bold text-foreground text-shadow-sm transition-all duration-300 group-hover:text-lg">+50 عميل راضٍ</span>
+                    <span className="font-bold text-foreground text-shadow-sm transition-all duration-300 text-xs sm:text-base group-hover:text-lg">+50 عميل راضٍ</span>
                   </div>
                   <div 
-                    className={`group flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group flex items-center gap-1 sm:gap-3 p-2 sm:p-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '1.2s' }}
                     onMouseEnter={() => setActiveCard(2)}
                     onMouseLeave={() => setActiveCard(null)}
                   >
                     <div className="relative">
-                      <Clock className={`w-5 h-5 text-[#008080] transition-all duration-300 ${activeCard === 2 ? 'scale-125 rotate-12' : ''}`} />
+                      <Clock className={`w-3 h-3 sm:w-5 sm:h-5 text-[#008080] transition-all duration-300 ${activeCard === 2 ? 'scale-125 rotate-12' : ''}`} />
                       {activeCard === 2 && (
                         <div className="absolute -inset-2 bg-[#008080]/20 rounded-full animate-ping" />
                       )}
                     </div>
-                    <span className="font-bold text-[#008080] transition-all duration-300 group-hover:text-lg">5 سنوات خبرة</span>
+                    <span className="font-bold text-[#008080] transition-all duration-300 text-xs sm:text-base group-hover:text-lg">5 سنوات خبرة</span>
                   </div>
                 </div>
               </div>
@@ -233,12 +233,12 @@ const AboutSection = () => {
           <div className={`relative transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.4s' }}>
             {/* Main Card with 3D Effect */}
             <div className="relative group perspective-1000">
-              <div className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 p-8 rounded-3xl shadow-2xl border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,128,128,0.15)] transform hover:-translate-y-2 hover:scale-[1.02]">
+              <div className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 p-2 sm:p-4 lg:p-8 rounded-lg sm:rounded-2xl lg:rounded-3xl shadow-2xl border border-[#008080]/20 hover:border-[#008080]/40 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,128,128,0.15)] transform hover:-translate-y-2 hover:scale-[1.02]">
                 
                 {/* Revolutionary Interactive Stats Grid */}
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:gap-6">
                   <div 
-                    className={`group text-center p-6 bg-gradient-to-br from-[#008080] to-[#00a0a0] rounded-2xl text-white relative overflow-hidden transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group text-center p-2 sm:p-4 lg:p-6 bg-gradient-to-br from-[#008080] to-[#00a0a0] rounded-lg sm:rounded-2xl text-white relative overflow-hidden transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '0.6s' }}
                     onMouseEnter={() => setActiveCard(10)}
                     onMouseLeave={() => setActiveCard(null)}
@@ -253,14 +253,14 @@ const AboutSection = () => {
                       </div>
                     )}
                     <div className="relative z-10">
-                      <div className={`text-4xl font-bold mb-2 transition-all duration-300 ${isVisible ? 'animate-count-up' : ''} ${activeCard === 10 ? 'scale-125 text-shadow-lg' : ''}`}>100%</div>
-                      <div className={`text-sm opacity-90 transition-all duration-300 ${activeCard === 10 ? 'font-bold scale-110' : ''}`}>رضا العملاء</div>
+                      <div className={`text-lg sm:text-2xl lg:text-4xl font-bold mb-1 sm:mb-2 transition-all duration-300 ${isVisible ? 'animate-count-up' : ''} ${activeCard === 10 ? 'scale-125 text-shadow-lg' : ''}`}>100%</div>
+                      <div className={`text-xs sm:text-sm opacity-90 transition-all duration-300 ${activeCard === 10 ? 'font-bold scale-110' : ''}`}>رضا العملاء</div>
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-white/10 rounded-full blur-xl" />
                   </div>
                   
                   <div 
-                    className={`group text-center p-6 bg-gradient-to-br from-[#FFEB3B] to-[#ffd700] rounded-2xl text-slate-900 relative overflow-hidden transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group text-center p-2 sm:p-4 lg:p-6 bg-gradient-to-br from-[#FFEB3B] to-[#ffd700] rounded-lg sm:rounded-2xl text-slate-900 relative overflow-hidden transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '0.8s' }}
                     onMouseEnter={() => setActiveCard(11)}
                     onMouseLeave={() => setActiveCard(null)}
@@ -273,14 +273,14 @@ const AboutSection = () => {
                       </div>
                     )}
                     <div className="relative z-10">
-                      <div className={`text-4xl font-bold mb-2 transition-all duration-300 ${isVisible ? 'animate-support' : ''} ${activeCard === 11 ? 'scale-125 text-shadow-lg' : ''}`}>24/7</div>
-                      <div className={`text-sm opacity-80 font-medium transition-all duration-300 ${activeCard === 11 ? 'font-bold scale-110' : ''}`}>دعم فني</div>
+                      <div className={`text-lg sm:text-2xl lg:text-4xl font-bold mb-1 sm:mb-2 transition-all duration-300 ${isVisible ? 'animate-support' : ''} ${activeCard === 11 ? 'scale-125 text-shadow-lg' : ''}`}>24/7</div>
+                      <div className={`text-xs sm:text-sm opacity-80 font-medium transition-all duration-300 ${activeCard === 11 ? 'font-bold scale-110' : ''}`}>دعم فني</div>
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-white/20 rounded-full blur-xl" />
                   </div>
                   
                   <div 
-                    className={`group text-center p-6 border-2 border-[#008080]/30 rounded-2xl bg-gradient-to-br from-[#008080]/5 to-transparent hover:border-[#008080]/50 hover:bg-[#008080]/10 transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group text-center p-2 sm:p-4 lg:p-6 border border-[#008080]/30 sm:border-2 rounded-lg sm:rounded-2xl bg-gradient-to-br from-[#008080]/5 to-transparent hover:border-[#008080]/50 hover:bg-[#008080]/10 transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '1s' }}
                     onMouseEnter={() => setActiveCard(12)}
                     onMouseLeave={() => setActiveCard(null)}
@@ -288,12 +288,12 @@ const AboutSection = () => {
                     {activeCard === 12 && (
                       <div className="absolute inset-0 bg-gradient-to-r from-[#008080]/20 via-transparent to-[#008080]/20 animate-pulse rounded-2xl" />
                     )}
-                    <div className={`text-5xl font-bold mb-2 text-[#008080] transition-all duration-300 ${isVisible ? 'animate-infinity' : ''} ${activeCard === 12 ? 'scale-150 rotate-12' : 'group-hover:scale-110'}`}>∞</div>
-                    <div className={`text-sm text-muted-foreground font-medium transition-all duration-300 ${activeCard === 12 ? 'font-bold scale-110 text-[#008080]' : ''}`}>إبداع لا محدود</div>
+                    <div className={`text-2xl sm:text-3xl lg:text-5xl font-bold mb-1 sm:mb-2 text-[#008080] transition-all duration-300 ${isVisible ? 'animate-infinity' : ''} ${activeCard === 12 ? 'scale-150 rotate-12' : 'group-hover:scale-110'}`}>∞</div>
+                    <div className={`text-xs sm:text-sm text-muted-foreground font-medium transition-all duration-300 ${activeCard === 12 ? 'font-bold scale-110 text-[#008080]' : ''}`}>إبداع لا محدود</div>
                   </div>
                   
                   <div 
-                    className={`group text-center p-6 border-2 border-[#FFEB3B]/40 rounded-2xl bg-gradient-to-br from-[#FFEB3B]/5 to-transparent hover:border-[#FFEB3B]/60 hover:bg-[#FFEB3B]/10 transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
+                    className={`group text-center p-2 sm:p-4 lg:p-6 border border-[#FFEB3B]/40 sm:border-2 rounded-lg sm:rounded-2xl bg-gradient-to-br from-[#FFEB3B]/5 to-transparent hover:border-[#FFEB3B]/60 hover:bg-[#FFEB3B]/10 transition-all duration-500 hover:scale-110 hover:rotate-1 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} 
                     style={{ animationDelay: '1.2s' }}
                     onMouseEnter={() => setActiveCard(13)}
                     onMouseLeave={() => setActiveCard(null)}
@@ -304,8 +304,8 @@ const AboutSection = () => {
                         <div className="absolute left-0 top-1/2 w-full h-px bg-gradient-to-r from-[#FFEB3B]/50 via-transparent to-[#FFEB3B]/50 animate-pulse" style={{ animationDelay: '0.5s' }} />
                       </div>
                     )}
-                    <div className={`text-5xl mb-2 transition-all duration-300 ${isVisible ? 'animate-lightning' : ''} ${activeCard === 13 ? 'scale-150 rotate-12 filter brightness-125' : 'group-hover:scale-110'}`}>⚡</div>
-                    <div className={`text-sm text-muted-foreground font-medium transition-all duration-300 ${activeCard === 13 ? 'font-bold scale-110 text-[#FFEB3B]' : ''}`}>تسليم سريع</div>
+                    <div className={`text-2xl sm:text-3xl lg:text-5xl mb-1 sm:mb-2 transition-all duration-300 ${isVisible ? 'animate-lightning' : ''} ${activeCard === 13 ? 'scale-150 rotate-12 filter brightness-125' : 'group-hover:scale-110'}`}>⚡</div>
+                    <div className={`text-xs sm:text-sm text-muted-foreground font-medium transition-all duration-300 ${activeCard === 13 ? 'font-bold scale-110 text-[#FFEB3B]' : ''}`}>تسليم سريع</div>
                   </div>
                 </div>
                 

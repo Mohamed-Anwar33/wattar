@@ -96,9 +96,9 @@ const ContactSection = () => {
       
 
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 relative z-10">
         {/* Spectacular Section Header */}
-        <div className={`text-center mb-14 md:mb-16 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}> 
+        <div className={`text-center mb-6 sm:mb-10 md:mb-16 transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-8'}`}> 
           <div className="relative inline-block">
             {/* Section title removed per request */}
             
@@ -107,13 +107,13 @@ const ContactSection = () => {
           {/* Intro paragraph removed per request */}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-start">
           {/* Right Column in RTL - Contact Form */}
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`}>
             <div className="relative">
-              <div className="relative max-w-xl mx-auto bg-card p-6 md:p-8 rounded-3xl border border-gray-200 shadow-lg">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-foreground">
+              <div className="relative bg-card p-2 sm:p-4 md:p-8 rounded-lg sm:rounded-2xl md:rounded-3xl border border-gray-200 shadow-lg">
+                <div className="text-center mb-3 sm:mb-6 md:mb-8">
+                  <h3 className="text-sm sm:text-xl md:text-3xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
                     <span className="text-foreground">
                       تواصل معنا
                     </span>
@@ -125,7 +125,7 @@ const ContactSection = () => {
                     action="https://formsubmit.co/ajax/contact@example.com"
                     method="POST"
                     onSubmit={handleSubmit}
-                    className="space-y-6"
+                    className="space-y-2 sm:space-y-4 md:space-y-6"
                     acceptCharset="UTF-8"
                   >
                     {/* FormSubmit Configuration */}
@@ -137,10 +137,10 @@ const ContactSection = () => {
                     {/* Default email subject shown in inbox. User's entered subject will appear in body as 'subject' */}
                     <input type="hidden" name="_subject" value="رسالة جديدة من موقع وتار" />
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-2 sm:gap-4">
                       <div className="relative">
-                        <Label htmlFor="name" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                          <Crown className="w-4 h-4 text-cyan-500" />
+                        <Label htmlFor="name" className="text-foreground font-bold mb-1 sm:mb-2 md:mb-3 block flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                          <Crown className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-cyan-500" />
                           الاسم
                         </Label>
                         <Input
@@ -148,7 +148,7 @@ const ContactSection = () => {
                           name="name"
                           required
                           placeholder="الاسم"
-                          className="bg-background/80 border-2 border-cyan-200/50 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-xl h-12"
+                          className="bg-background/80 border border-cyan-200/50 sm:border-2 focus:border-cyan-500 focus:ring-cyan-500/20 transition-all duration-300 rounded-lg sm:rounded-xl h-8 sm:h-10 md:h-12 text-xs sm:text-sm"
                           onFocus={() => setActiveField('name')}
                           onBlur={() => setActiveField(null)}
                         />
@@ -157,8 +157,8 @@ const ContactSection = () => {
                         )}
                       </div>
                       <div className="relative">
-                        <Label htmlFor="company" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                          <Mail className="w-4 h-4 text-purple-500" />
+                        <Label htmlFor="company" className="text-foreground font-bold mb-1 sm:mb-2 md:mb-3 block flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                          <Mail className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-purple-500" />
                           الشركة
                         </Label>
                         <Input
@@ -167,7 +167,7 @@ const ContactSection = () => {
                           type="text"
                           required
                           placeholder="الشركة"
-                          className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
+                          className="bg-background/80 border border-purple-200/50 sm:border-2 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-lg sm:rounded-xl h-8 sm:h-10 md:h-12 text-xs sm:text-sm"
                           onFocus={() => setActiveField('company')}
                           onBlur={() => setActiveField(null)}
                         />
@@ -179,8 +179,8 @@ const ContactSection = () => {
                     
                     {/* Email */}
                     <div className="relative">
-                      <Label htmlFor="email" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Mail className="w-4 h-4 text-purple-500" />
+                      <Label htmlFor="email" className="text-foreground font-bold mb-1 sm:mb-2 md:mb-3 block flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                        <Mail className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-purple-500" />
                         الايميل
                       </Label>
                       <Input
@@ -189,7 +189,7 @@ const ContactSection = () => {
                         type="email"
                         required
                         placeholder="الايميل"
-                        className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-xl h-12"
+                        className="bg-background/80 border border-purple-200/50 sm:border-2 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 rounded-lg sm:rounded-xl h-8 sm:h-10 md:h-12 text-xs sm:text-sm"
                         onFocus={() => setActiveField('email')}
                         onBlur={() => setActiveField(null)}
                       />
@@ -200,8 +200,8 @@ const ContactSection = () => {
 
                     {/* Phone Number */}
                     <div className="relative">
-                      <Label htmlFor="phone" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Phone className="w-4 h-4 text-teal-500" />
+                      <Label htmlFor="phone" className="text-foreground font-bold mb-1 sm:mb-2 md:mb-3 block flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                        <Phone className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-teal-500" />
                         رقم التواصل
                       </Label>
                       <Input
@@ -212,7 +212,7 @@ const ContactSection = () => {
                         placeholder="رقم التواصل"
                         pattern="^[+]?[^a-zA-Z]{7,20}$"
                         autoComplete="tel"
-                        className="bg-background/80 border-2 border-teal-200/50 focus:border-teal-500 focus:ring-teal-500/20 transition-all duration-300 rounded-xl h-12"
+                        className="bg-background/80 border border-teal-200/50 sm:border-2 focus:border-teal-500 focus:ring-teal-500/20 transition-all duration-300 rounded-lg sm:rounded-xl h-8 sm:h-10 md:h-12 text-xs sm:text-sm"
                         onFocus={() => setActiveField('phone')}
                         onBlur={() => setActiveField(null)}
                       />
@@ -224,17 +224,17 @@ const ContactSection = () => {
                     
 
                     <div className="relative">
-                      <Label htmlFor="message" className="text-foreground font-bold mb-3 block flex items-center gap-2">
-                        <Heart className="w-4 h-4 text-purple-500" />
+                      <Label htmlFor="message" className="text-foreground font-bold mb-1 sm:mb-2 md:mb-3 block flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                        <Heart className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-purple-500" />
                         نبذة عن نطاق العمل المطلوب
                       </Label>
                       <Textarea
                         id="message"
                         name="message"
                         required
-                        rows={5}
+                        rows={3}
                         placeholder="نبذة عن نطاق العمل المطلوب"
-                        className="bg-background/80 border-2 border-purple-200/50 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 resize-none rounded-xl"
+                        className="bg-background/80 border border-purple-200/50 sm:border-2 focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-300 resize-none rounded-lg sm:rounded-xl text-xs sm:text-sm"
                         onFocus={() => setActiveField('message')}
                         onBlur={() => setActiveField(null)}
                       />
@@ -248,18 +248,18 @@ const ContactSection = () => {
                       <Button 
                         type="submit"
                         disabled={isSubmitting}
-                        className="relative w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold text-lg py-6 rounded-xl shadow-2xl shadow-cyan-500/50 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+                        className="relative w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold text-xs sm:text-sm md:text-lg py-2 sm:py-4 md:py-6 rounded-lg sm:rounded-xl shadow-2xl shadow-cyan-500/50 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
                       >
-                        <span className="flex items-center justify-center gap-3">
+                        <span className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
                           {isSubmitting ? (
                             <>
-                              <Loader2 className="w-5 h-5 animate-spin" />
+                              <Loader2 className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 animate-spin" />
                               جاري الإرسال...
                             </>
                           ) : (
                             <>
                               إرسال
-                              <Send className="w-5 h-5 group-hover:animate-bounce" />
+                              <Send className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:animate-bounce" />
                             </>
                           )}
                         </span>
@@ -319,22 +319,21 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Left Column in RTL - Lottie/Visual */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`} style={{ animationDelay: '0.2s' }}> 
+          {/* Left Column in RTL - Lottie/Visual - Hidden on mobile */}
+          <div className={`hidden lg:block transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-12'}`} style={{ animationDelay: '0.2s' }}> 
             {/* Lottie Animation */}
-            <div className="relative mb-8 md:mb-12 hidden lg:block">
-              <div className="w-full max-w-md mx-auto relative">
-                <div className="relative bg-card rounded-3xl p-6 border border-gray-200 shadow-lg">
+            <div className="relative mb-4 sm:mb-8 md:mb-12">
+              <div className="w-full relative">
+                <div className="relative bg-card rounded-lg sm:rounded-2xl md:rounded-3xl p-2 sm:p-4 md:p-6 border border-gray-200 shadow-lg">
                   <DotLottieReact
                     src="https://lottie.host/bf1f4ee7-d88f-4b94-bcf0-5ea07a47ed28/br8dyJzXli.lottie"
                     loop
                     autoplay
-                    className="w-full h-64"
+                    className="w-full h-32 sm:h-48 md:h-64"
                   />
                 </div>
               </div>
             </div>
-            {/* Social media block removed per request */}
           </div>
         </div>
       </div>
